@@ -1,2 +1,12 @@
-ï»¿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+namespace copy_image
+{
+    internal static class Program
+    {
+        [STAThread] // ÔO¶¨†ÎˆÌĞĞ¾w†ÎÔª(STA)Ä£Ê½£¬Òòé¼ôÙN²¾îĞèÒªËü
+        static void Main(string[] args)
+        {
+            ApplicationConfiguration.Initialize();
+            Application.Run(new Form1(args));
+        }
+    }
+}
