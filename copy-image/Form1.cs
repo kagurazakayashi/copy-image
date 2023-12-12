@@ -35,12 +35,23 @@ namespace copy_image
                 }
                 return;
             }
+            timerStart.Enabled = true;
+        }
+
+        private void timerExit_Tick(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void timerStart_Tick(object sender, EventArgs e)
+        {
             try
             {
-                Image image = Image.FromFile(imagePath); // 从指定路径加载图片
+                Image image = Image.FromFile(imagePath); // 從指定路徑載入圖片
                 pictureBox1.Image = image;
-                Clipboard.SetImage(image); // 将图片复制到剪贴板
+                Clipboard.SetImage(image); // 將圖片複製到剪貼簿
                 Text = "图片已成功复制到剪贴板 - " + imagePath;
+                label1.Visible = false;
                 timerExit.Enabled = true;
             }
             catch (Exception ex)
@@ -51,11 +62,6 @@ namespace copy_image
                 }
                 return;
             }
-        }
-
-        private void timerExit_Tick(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

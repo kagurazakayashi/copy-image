@@ -31,6 +31,8 @@
             components = new System.ComponentModel.Container();
             pictureBox1 = new PictureBox();
             timerExit = new System.Windows.Forms.Timer(components);
+            label1 = new Label();
+            timerStart = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -38,6 +40,7 @@
             // 
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox1.Location = new Point(0, 0);
+            pictureBox1.Margin = new Padding(0);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(284, 261);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -49,11 +52,30 @@
             timerExit.Interval = 3000;
             timerExit.Tick += timerExit_Tick;
             // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            label1.Cursor = Cursors.WaitCursor;
+            label1.FlatStyle = FlatStyle.Flat;
+            label1.Font = new Font("Microsoft YaHei UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(0, 0);
+            label1.Margin = new Padding(0);
+            label1.Name = "label1";
+            label1.Size = new Size(284, 261);
+            label1.TabIndex = 1;
+            label1.Text = "正在复制";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // timerStart
+            // 
+            timerStart.Tick += timerStart_Tick;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
             AutoScaleMode = AutoScaleMode.Dpi;
             ClientSize = new Size(284, 261);
+            Controls.Add(label1);
             Controls.Add(pictureBox1);
             Name = "Form1";
             StartPosition = FormStartPosition.Manual;
@@ -67,5 +89,7 @@
 
         private PictureBox pictureBox1;
         private System.Windows.Forms.Timer timerExit;
+        private Label label1;
+        private System.Windows.Forms.Timer timerStart;
     }
 }
