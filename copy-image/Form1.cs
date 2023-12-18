@@ -1,20 +1,25 @@
 using System.Windows.Forms;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Net.Http;
+using System.Threading;
+using System.Threading.Tasks;
+
 
 namespace copy_image
 {
     public partial class Form1 : Form
     {
-        string imagePath = string.Empty;
-        public Form1(string[] args)
+        public string imagePath = string.Empty;
+        public Form1()
         {
             InitializeComponent();
             // 設定窗體的開始位置為手動
             this.StartPosition = FormStartPosition.Manual;
             this.Load += new EventHandler(Form1_Load);
-            if (args.Length > 0)
-            {
-                imagePath = args[0];
-            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -26,15 +31,6 @@ namespace copy_image
             int y = screen.Height - this.Height;
             // 應用計算出的位置
             this.Location = new Point(x, y);
-
-            if (imagePath == string.Empty)
-            {
-                if (MessageBox.Show("请提供一个图片路径作为参数", "请指定需要打开的文件", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
-                {
-                    Application.Exit();
-                }
-                return;
-            }
             timerStart.Enabled = true;
         }
 

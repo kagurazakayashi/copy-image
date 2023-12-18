@@ -1,4 +1,7 @@
-﻿namespace copy_image
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace copy_image
 {
     partial class Form1
     {
@@ -29,10 +32,11 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             pictureBox1 = new PictureBox();
-            timerExit = new System.Windows.Forms.Timer(components);
+            timerExit = new Timer(components);
             label1 = new Label();
-            timerStart = new System.Windows.Forms.Timer(components);
+            timerStart = new Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -77,6 +81,7 @@
             ClientSize = new Size(284, 261);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             StartPosition = FormStartPosition.Manual;
             Text = "复制图片";

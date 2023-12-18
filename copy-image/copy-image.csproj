@@ -2,11 +2,53 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net5.0-windows7.0</TargetFramework>
     <RootNamespace>copy_image</RootNamespace>
-    <Nullable>enable</Nullable>
+    <Nullable>warnings</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <ApplicationIcon>ico\copy-image-1.ico</ApplicationIcon>
+    <StartupObject>copy_image.Program</StartupObject>
+    <PackageIcon>copy-image-1.png</PackageIcon>
+    <RepositoryUrl>https://github.com/kagurazakayashi/copy-image</RepositoryUrl>
+    <Copyright>(C) 2023 KagurazakaYashi</Copyright>
+    <PackageProjectUrl>https://github.com/kagurazakayashi/copy-image</PackageProjectUrl>
+    <Company>$(Authors)</Company>
+    <Title>CopyImage</Title>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="ico\copy-image-1.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="copy-image-1.ico">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="ico\copy-image-1.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="icon\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
 
 </Project>
