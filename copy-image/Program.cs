@@ -19,7 +19,7 @@ namespace copy_image
             else
             {
                 Form2 form2 = new Form2();
-                if (IsValidFilePath(args[0]))
+                if (args.Length > 0)
                 {
                     form2.imagePath = args[0];
                 }

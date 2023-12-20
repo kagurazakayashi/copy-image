@@ -1,8 +1,7 @@
 {
   "profiles": {
     "copy-image": {
-      "commandName": "Project",
-      "commandLineArgs": "\"C:\\Users\\yashi\\OneDrive\\图片\\FJeaYoCacAI3rIm.jfif\""
+      "commandName": "Project"
     }
   }
 }
