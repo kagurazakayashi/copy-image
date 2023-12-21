@@ -34,5 +34,29 @@ namespace copy_image.Properties {
                 this["autoclose"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string shellitemname {
+            get {
+                return ((string)(this["shellitemname"]));
+            }
+            set {
+                this["shellitemname"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string fileTypes {
+            get {
+                return ((string)(this["fileTypes"]));
+            }
+            set {
+                this["fileTypes"] = value;
+            }
+        }
     }
 }
