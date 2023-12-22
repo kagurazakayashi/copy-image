@@ -26,36 +26,72 @@ namespace copy_image.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("3")]
-        public int autoclose {
+        public int AutoClose {
             get {
-                return ((int)(this["autoclose"]));
+                return ((int)(this["AutoClose"]));
             }
             set {
-                this["autoclose"] = value;
+                this["AutoClose"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string shellitemname {
+        public string MenuItemName {
             get {
-                return ((string)(this["shellitemname"]));
+                return ((string)(this["MenuItemName"]));
             }
             set {
-                this["shellitemname"] = value;
+                this["MenuItemName"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string fileTypes {
+        public string fileExtensions {
             get {
-                return ((string)(this["fileTypes"]));
+                return ((string)(this["fileExtensions"]));
             }
             set {
-                this["fileTypes"] = value;
+                this["fileExtensions"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1920")]
+        public decimal AutoSizeW {
+            get {
+                return ((decimal)(this["AutoSizeW"]));
+            }
+            set {
+                this["AutoSizeW"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1080")]
+        public decimal AutoSizeH {
+            get {
+                return ((decimal)(this["AutoSizeH"]));
+            }
+            set {
+                this["AutoSizeH"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AutoSize {
+            get {
+                return ((bool)(this["AutoSize"]));
+            }
+            set {
+                this["AutoSize"] = value;
             }
         }
     }

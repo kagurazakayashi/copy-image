@@ -2,14 +2,23 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="copy_image.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="autoclose" Type="System.Int32" Scope="User">
+    <Setting Name="AutoClose" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">3</Value>
     </Setting>
-    <Setting Name="shellitemname" Type="System.String" Scope="User">
+    <Setting Name="MenuItemName" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="fileTypes" Type="System.String" Scope="User">
+    <Setting Name="fileExtensions" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="AutoSizeW" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">1920</Value>
+    </Setting>
+    <Setting Name="AutoSizeH" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">1080</Value>
+    </Setting>
+    <Setting Name="AutoSize" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

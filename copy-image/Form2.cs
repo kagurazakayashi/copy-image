@@ -25,7 +25,7 @@ namespace copy_image
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            int autoClose = Settings.Default.autoclose;
+            int autoClose = Settings.Default.AutoClose;
             if (autoClose < trackBarAutoClose.Minimum)
             {
                 autoClose = trackBarAutoClose.Minimum;
@@ -37,14 +37,36 @@ namespace copy_image
             trackBarAutoClose.Value = autoClose;
             trackBarAutoClose_Scroll(sender, e);
             textBoxExePath.Text = Assembly.GetExecutingAssembly().Location;
-            if (Settings.Default.shellitemname.Length > 0)
+            if (Settings.Default.MenuItemName.Length > 0)
             {
-                textBoxShellMenuItemName.Text = Settings.Default.shellitemname;
+                textBoxShellMenuItemName.Text = Settings.Default.MenuItemName;
             }
-            if (Settings.Default.fileTypes.Length > 0)
+            if (Settings.Default.fileExtensions.Length > 0)
             {
-                textBoxFileTypes.Text = Settings.Default.fileTypes;
+                textBoxFileTypes.Text = Settings.Default.fileExtensions;
             }
+            decimal[] maxSize = new decimal[2] { Settings.Default.AutoSizeW, Settings.Default.AutoSizeH };
+            if (maxSize[0] < numericAutoSizeW.Minimum)
+            {
+                maxSize[0] = numericAutoSizeW.Minimum;
+            }
+            else if (maxSize[0] > numericAutoSizeW.Maximum)
+            {
+                maxSize[0] = numericAutoSizeW.Maximum;
+            }
+            if (maxSize[1] < numericAutoSizeH.Minimum)
+            {
+                maxSize[1] = numericAutoSizeH.Minimum;
+            }
+            else if (maxSize[1] > numericAutoSizeH.Maximum)
+            {
+                maxSize[1] = numericAutoSizeH.Maximum;
+            }
+            checkBoxAutoSize.Checked = Settings.Default.AutoSize;
+            numericAutoSizeW.Value = maxSize[0];
+            numericAutoSizeH.Value = maxSize[1];
+            numericAutoSizeW.Enabled = Settings.Default.AutoSize;
+            numericAutoSizeH.Enabled = Settings.Default.AutoSize;
         }
 
         private void trackBarAutoClose_Scroll(object sender, EventArgs e)
@@ -65,9 +87,9 @@ namespace copy_image
                 timeTitle += splitchar + val.ToString() + " 秒";
             }
             groupBoxAutoClose.Text = timeTitle;
-            if (val != Settings.Default.autoclose)
+            if (val != Settings.Default.AutoClose)
             {
-                Settings.Default.autoclose = val;
+                Settings.Default.AutoClose = val;
             }
         }
 
@@ -78,12 +100,12 @@ namespace copy_image
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            Settings.Default.shellitemname = textBoxShellMenuItemName.Text.Trim();
+            Settings.Default.MenuItemName = textBoxShellMenuItemName.Text.Trim();
         }
 
         private void textBoxFileTypes_TextChanged(object sender, EventArgs e)
         {
-            Settings.Default.fileTypes = textBoxFileTypes.Text.Trim();
+            Settings.Default.fileExtensions = textBoxFileTypes.Text.Trim();
         }
 
         private void buttonShellMenuItemAdd_Click(object sender, EventArgs e)
@@ -167,6 +189,23 @@ namespace copy_image
                 }
             }
             MessageBox.Show(string.Join(Environment.NewLine, infos), ShellMenuItemMgr.extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void checkBoxAutoSize_CheckedChanged(object sender, EventArgs e)
+        {
+            Settings.Default.AutoSize = checkBoxAutoSize.Checked;
+            numericAutoSizeW.Enabled = checkBoxAutoSize.Checked;
+            numericAutoSizeH.Enabled = checkBoxAutoSize.Checked;
+        }
+
+        private void numericAutoSizeW_ValueChanged(object sender, EventArgs e)
+        {
+            Settings.Default.AutoSizeW = numericAutoSizeW.Value;
+        }
+
+        private void numericAutoSizeH_ValueChanged(object sender, EventArgs e)
+        {
+            Settings.Default.AutoSizeH = numericAutoSizeH.Value;
         }
     }
 }
