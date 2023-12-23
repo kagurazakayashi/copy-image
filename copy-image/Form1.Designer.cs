@@ -85,6 +85,7 @@ namespace copy_image
             Name = "Form1";
             StartPosition = FormStartPosition.Manual;
             Text = "复制图片";
+            TopMost = true;
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);

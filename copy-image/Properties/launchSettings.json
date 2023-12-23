@@ -1,7 +1,8 @@
 {
   "profiles": {
     "copy-image": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Users\\yashi\\OneDrive\\图片\\W\\白夜茶会 moe 64299 crease harukaze_setsuna pantsu thighhighs tinkle.png\""
     }
   }
 }

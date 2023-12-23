@@ -100,7 +100,7 @@
             // 
             labelAutoCloseInfo2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             labelAutoCloseInfo2.AutoSize = true;
-            labelAutoCloseInfo2.Location = new System.Drawing.Point(571, 76);
+            labelAutoCloseInfo2.Location = new System.Drawing.Point(585, 76);
             labelAutoCloseInfo2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             labelAutoCloseInfo2.Name = "labelAutoCloseInfo2";
             labelAutoCloseInfo2.Size = new System.Drawing.Size(154, 21);
@@ -114,9 +114,9 @@
             labelAutoCloseInfo1.Location = new System.Drawing.Point(8, 76);
             labelAutoCloseInfo1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             labelAutoCloseInfo1.Name = "labelAutoCloseInfo1";
-            labelAutoCloseInfo1.Size = new System.Drawing.Size(122, 21);
+            labelAutoCloseInfo1.Size = new System.Drawing.Size(202, 21);
             labelAutoCloseInfo1.TabIndex = 4;
-            labelAutoCloseInfo1.Text = "禁止显示提示窗";
+            labelAutoCloseInfo1.Text = "后台复制（最小化提示窗）";
             // 
             // trackBarAutoClose
             // 
@@ -220,7 +220,7 @@
             textBoxShellMenuItemName.Name = "textBoxShellMenuItemName";
             textBoxShellMenuItemName.Size = new System.Drawing.Size(732, 28);
             textBoxShellMenuItemName.TabIndex = 3;
-            textBoxShellMenuItemName.Text = "复制图片到剪贴板(&P)";
+            textBoxShellMenuItemName.Text = "复制图片到剪贴板";
             textBoxShellMenuItemName.TextChanged += textBox2_TextChanged;
             // 
             // label3
