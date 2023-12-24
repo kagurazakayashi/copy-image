@@ -18,13 +18,18 @@ namespace copy_image
     public partial class Form2 : Form
     {
         public string imagePath = string.Empty;
-        public Form2()
+        public Form2(string path)
         {
             InitializeComponent();
+            imagePath = path;
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            if (imagePath != string.Empty)
+            {
+                label1.Text += "\n" + imagePath + " 不是有效的文件路径。";
+            }
             int autoClose = Settings.Default.AutoClose;
             if (autoClose < trackBarAutoClose.Minimum)
             {

@@ -16,10 +16,13 @@ namespace copy_image
     {
         public string imagePath = string.Empty;
         private int exitTime = 3000;
+        int[] maxSize = new int[2] { -1, -1 };
 
-        public Form1()
+        public Form1(string path)
         {
             InitializeComponent();
+            imagePath = path;
+            Text = path;
             // 設定窗體的開始位置為手動
             StartPosition = FormStartPosition.Manual;
             Load += new EventHandler(Form1_Load);
@@ -35,12 +38,16 @@ namespace copy_image
             // 應用計算出的位置
             Location = new Point(x, y);
             exitTime = Settings.Default.AutoClose;
-            if (exitTime > 60)
+            if (exitTime <= 0)
             {
                 WindowState = FormWindowState.Minimized;
-                exitTime = 1;
             }
             timerStart.Enabled = true;
+            if (Settings.Default.AutoSize)
+            {
+                maxSize[0] = (int)Settings.Default.AutoSizeW;
+                maxSize[1] = (int)Settings.Default.AutoSizeH;
+            }
         }
 
         private void timerExit_Tick(object sender, EventArgs e)
@@ -53,11 +60,28 @@ namespace copy_image
             try
             {
                 Image image = Image.FromFile(imagePath); // 從指定路徑載入圖片
+                int[] imgSize = new int[2] { image.Width, image.Height };
+                string sizeText = $"{imgSize[0]} x {imgSize[1]}";
+                if (maxSize[0] > 0 && maxSize[1] > 0)
+                {
+                    int[] newSize = ImageResizer.ImageNewSize(image, maxSize[0], maxSize[1]);
+                    if (newSize[0] != maxSize[0] || newSize[1] != maxSize[1])
+                    {
+                        sizeText = $"{newSize[0]} x {newSize[1]} (已压缩 {sizeText} )";
+                        image = ImageResizer.ResizeImage(image, newSize[0], newSize[1]);
+                        imgSize[0] = image.Width;
+                        imgSize[1] = image.Height;
+                    }
+                }
                 pictureBox1.Image = image;
                 Clipboard.SetImage(image); // 將圖片複製到剪貼簿
-                Text = "图片已成功复制到剪贴板 - " + imagePath;
+                Text = $"{sizeText} - 已复制 - " + imagePath;
                 label1.Visible = false;
-                if (exitTime > 0 && exitTime <= 60)
+                if (exitTime <= 0)
+                {
+                    Application.Exit();
+                }
+                else if (exitTime <= 60)
                 {
                     timerExit.Interval = exitTime * 1000;
                     timerExit.Enabled = true;

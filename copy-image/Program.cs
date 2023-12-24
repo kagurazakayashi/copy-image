@@ -10,20 +10,24 @@ namespace copy_image
         static void Main(string[] args)
         {
             //ApplicationConfiguration.Initialize();
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
             if (args.Length > 0 && IsValidFilePath(args[0]))
             {
-                Form1 form1 = new Form1();
-                form1.imagePath = args[0];
+                Form1 form1 = new Form1(args[0]);
                 Application.Run(form1);
             }
             else
             {
-                Form2 form2 = new Form2();
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
                 if (args.Length > 0)
                 {
-                    form2.imagePath = args[0];
+                    Application.Run(new Form2(args[0]));
                 }
-                Application.Run(new Form2());
+                else
+                {
+                    Application.Run(new Form2(string.Empty));
+                }
             }
         }
 

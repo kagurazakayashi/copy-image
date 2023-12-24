@@ -79,7 +79,7 @@
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(648, 79);
             label1.TabIndex = 1;
-            label1.Text = "使用方法：\r\n<程序名称>.exe <图片文件路径>\r\n不提供 <图片文件路径> 将显示本配置窗口。";
+            label1.Text = "使用方法：<程序名称>.exe <图片文件路径>\r\n不提供 <图片文件路径> 将显示本配置窗口。";
             // 
             // groupBoxAutoClose
             // 
@@ -255,6 +255,7 @@
             // 
             // groupBox2
             // 
+            groupBox2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             groupBox2.Controls.Add(numericAutoSizeH);
             groupBox2.Controls.Add(label6);
             groupBox2.Controls.Add(numericAutoSizeW);
