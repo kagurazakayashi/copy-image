@@ -26,6 +26,11 @@ namespace copy_image
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            comboBoxThemeStyle.SelectedIndex = Settings.Default.ThemeStyle;
+            if (Settings.Default.ThemeStyle == 2 || (GlobalSettings.IsDarkModeEnabled && Settings.Default.ThemeStyle == 0))
+            {
+                applyDarkTheme();
+            }
             if (imagePath != string.Empty)
             {
                 label1.Text += "\n" + imagePath + " 不是有效的文件路径。";
@@ -72,6 +77,36 @@ namespace copy_image
             numericAutoSizeH.Value = maxSize[1];
             numericAutoSizeW.Enabled = Settings.Default.AutoSize;
             numericAutoSizeH.Enabled = Settings.Default.AutoSize;
+        }
+
+        private void applyDarkTheme()
+        {
+            BackColor = GlobalSettings.dark[0]; // 暗色背景
+            ForeColor = GlobalSettings.dark[1]; // 淺灰色前景
+            // 對於每個控制元件，也應用相應的顏色
+            Control[] controlList = new Control[] { numericAutoSizeW, numericAutoSizeH, textBoxExePath, textBoxShellMenuItemName, textBoxFileTypes, comboBoxThemeStyle };
+            Button[] buttonList = new Button[] { buttonShellMenuItemStatus, buttonShellMenuItemAdd, buttonShellMenuItemRemove };
+            foreach (Control c in Controls)
+            {
+                c.BackColor = GlobalSettings.dark[0];
+                c.ForeColor = GlobalSettings.dark[1];
+                //if (c is Button btn)
+                //{
+                //    btn.FlatStyle = FlatStyle.Flat;
+                //}
+            }
+            foreach (Control c in controlList)
+            {
+                c.BackColor = GlobalSettings.dark[0];
+                c.ForeColor = GlobalSettings.dark[1];
+            }
+            foreach (Button c in buttonList)
+            {
+                c.BackColor = GlobalSettings.dark[0];
+                c.ForeColor = GlobalSettings.dark[1];
+                c.FlatStyle = FlatStyle.Flat;
+            }
+            comboBoxThemeStyle.FlatStyle = FlatStyle.Flat;
         }
 
         private void trackBarAutoClose_Scroll(object sender, EventArgs e)
@@ -211,6 +246,11 @@ namespace copy_image
         private void numericAutoSizeH_ValueChanged(object sender, EventArgs e)
         {
             Settings.Default.AutoSizeH = numericAutoSizeH.Value;
+        }
+
+        private void comboBoxThemeStyle_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Settings.Default.ThemeStyle = comboBoxThemeStyle.SelectedIndex;
         }
     }
 }

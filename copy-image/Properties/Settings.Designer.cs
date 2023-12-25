@@ -94,5 +94,17 @@ namespace copy_image.Properties {
                 this["AutoSize"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ThemeStyle {
+            get {
+                return ((int)(this["ThemeStyle"]));
+            }
+            set {
+                this["ThemeStyle"] = value;
+            }
+        }
     }
 }

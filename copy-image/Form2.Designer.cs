@@ -51,6 +51,8 @@
             numericAutoSizeW = new System.Windows.Forms.NumericUpDown();
             label5 = new System.Windows.Forms.Label();
             checkBoxAutoSize = new System.Windows.Forms.CheckBox();
+            label7 = new System.Windows.Forms.Label();
+            comboBoxThemeStyle = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBoxAutoClose.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)trackBarAutoClose).BeginInit();
@@ -156,6 +158,7 @@
             // buttonShellMenuItemStatus
             // 
             buttonShellMenuItemStatus.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            buttonShellMenuItemStatus.Cursor = System.Windows.Forms.Cursors.Hand;
             buttonShellMenuItemStatus.Location = new System.Drawing.Point(10, 192);
             buttonShellMenuItemStatus.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             buttonShellMenuItemStatus.Name = "buttonShellMenuItemStatus";
@@ -191,6 +194,7 @@
             // buttonShellMenuItemAdd
             // 
             buttonShellMenuItemAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            buttonShellMenuItemAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             buttonShellMenuItemAdd.Location = new System.Drawing.Point(258, 192);
             buttonShellMenuItemAdd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             buttonShellMenuItemAdd.Name = "buttonShellMenuItemAdd";
@@ -203,6 +207,7 @@
             // buttonShellMenuItemRemove
             // 
             buttonShellMenuItemRemove.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            buttonShellMenuItemRemove.Cursor = System.Windows.Forms.Cursors.Hand;
             buttonShellMenuItemRemove.Location = new System.Drawing.Point(502, 192);
             buttonShellMenuItemRemove.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             buttonShellMenuItemRemove.Name = "buttonShellMenuItemRemove";
@@ -321,6 +326,7 @@
             // checkBoxAutoSize
             // 
             checkBoxAutoSize.AutoSize = true;
+            checkBoxAutoSize.Cursor = System.Windows.Forms.Cursors.Hand;
             checkBoxAutoSize.Location = new System.Drawing.Point(10, 25);
             checkBoxAutoSize.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkBoxAutoSize.Name = "checkBoxAutoSize";
@@ -330,11 +336,33 @@
             checkBoxAutoSize.UseVisualStyleBackColor = true;
             checkBoxAutoSize.CheckedChanged += checkBoxAutoSize_CheckedChanged;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(15, 565);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(58, 21);
+            label7.TabIndex = 5;
+            label7.Text = "外观：";
+            // 
+            // comboBoxThemeStyle
+            // 
+            comboBoxThemeStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            comboBoxThemeStyle.FormattingEnabled = true;
+            comboBoxThemeStyle.Items.AddRange(new object[] { "跟随系统", "亮色", "暗色" });
+            comboBoxThemeStyle.Location = new System.Drawing.Point(91, 562);
+            comboBoxThemeStyle.Name = "comboBoxThemeStyle";
+            comboBoxThemeStyle.Size = new System.Drawing.Size(198, 29);
+            comboBoxThemeStyle.TabIndex = 6;
+            comboBoxThemeStyle.SelectedIndexChanged += comboBoxThemeStyle_SelectedIndexChanged;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(780, 570);
+            ClientSize = new System.Drawing.Size(780, 606);
+            Controls.Add(comboBoxThemeStyle);
+            Controls.Add(label7);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(groupBoxAutoClose);
@@ -344,7 +372,7 @@
             Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Margin = new System.Windows.Forms.Padding(4);
             Name = "Form2";
-            Text = "快捷复制图片到剪贴板";
+            Text = "快捷复制图片到剪贴板 - 配置（以下设置需要重新运行程序后生效）";
             FormClosing += Form2_FormClosing;
             Load += Form2_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -358,6 +386,7 @@
             ((System.ComponentModel.ISupportInitialize)numericAutoSizeH).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericAutoSizeW).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -384,5 +413,7 @@
         private System.Windows.Forms.NumericUpDown numericAutoSizeW;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox checkBoxAutoSize;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox comboBoxThemeStyle;
     }
 }

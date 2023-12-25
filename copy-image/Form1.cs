@@ -37,6 +37,10 @@ namespace copy_image
             int y = screen.Height - Height;
             // 應用計算出的位置
             Location = new Point(x, y);
+            if (Settings.Default.ThemeStyle == 2 || (GlobalSettings.IsDarkModeEnabled && Settings.Default.ThemeStyle == 0))
+            {
+                applyDarkTheme();
+            }
             exitTime = Settings.Default.AutoClose;
             if (exitTime <= 0)
             {
@@ -47,6 +51,18 @@ namespace copy_image
             {
                 maxSize[0] = (int)Settings.Default.AutoSizeW;
                 maxSize[1] = (int)Settings.Default.AutoSizeH;
+            }
+        }
+
+        private void applyDarkTheme()
+        {
+            BackColor = GlobalSettings.dark[0]; // 暗色背景
+            ForeColor = GlobalSettings.dark[1]; // 淺灰色前景
+            // 對於每個控制元件，也應用相應的顏色
+            foreach (Control c in this.Controls)
+            {
+                c.BackColor = GlobalSettings.dark[0];
+                c.ForeColor = GlobalSettings.dark[1];
             }
         }
 
