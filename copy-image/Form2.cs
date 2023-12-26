@@ -31,6 +31,7 @@ namespace copy_image
             {
                 applyDarkTheme();
             }
+            comboBoxLanguage.Text = Settings.Default.DefaultLanguage;
             if (imagePath != string.Empty)
             {
                 label1.Text += "\n" + imagePath + " 不是有效的文件路径。";
@@ -251,6 +252,11 @@ namespace copy_image
         private void comboBoxThemeStyle_SelectedIndexChanged(object sender, EventArgs e)
         {
             Settings.Default.ThemeStyle = comboBoxThemeStyle.SelectedIndex;
+        }
+
+        private void comboBoxLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Settings.Default.DefaultLanguage = comboBoxLanguage.Text;
         }
     }
 }

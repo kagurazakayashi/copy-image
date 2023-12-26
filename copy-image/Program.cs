@@ -1,5 +1,8 @@
+using copy_image.Properties;
 using System;
+using System.Globalization;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace copy_image
@@ -12,6 +15,14 @@ namespace copy_image
             //ApplicationConfiguration.Initialize();
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             UpdateDarkModeStatus();
+
+            // ÝdÈëÕZÑÔ
+            if (Settings.Default.DefaultLanguage.Length > 1 && Settings.Default.DefaultLanguage != "auto")
+            {
+                CultureInfo ci = new CultureInfo(Settings.Default.DefaultLanguage);
+                Thread.CurrentThread.CurrentUICulture = ci;
+            }
+
             if (args.Length > 0 && IsValidFilePath(args[0]))
             {
                 Form1 form1 = new Form1(args[0]);

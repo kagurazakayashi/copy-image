@@ -42,13 +42,8 @@ namespace copy_image
             // 
             // pictureBox1
             // 
-            pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Margin = new Padding(0);
+            resources.ApplyResources(pictureBox1, "pictureBox1");
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(284, 261);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
             // timerExit
@@ -58,17 +53,10 @@ namespace copy_image
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            resources.ApplyResources(label1, "label1");
             label1.Cursor = Cursors.WaitCursor;
             label1.FlatStyle = FlatStyle.Flat;
-            label1.Font = new Font("Microsoft YaHei UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(0, 0);
-            label1.Margin = new Padding(0);
             label1.Name = "label1";
-            label1.Size = new Size(284, 261);
-            label1.TabIndex = 1;
-            label1.Text = "正在复制";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // timerStart
             // 
@@ -76,15 +64,11 @@ namespace copy_image
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(96F, 96F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Dpi;
-            ClientSize = new Size(284, 261);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
-            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
-            StartPosition = FormStartPosition.Manual;
-            Text = "复制图片";
             TopMost = true;
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
