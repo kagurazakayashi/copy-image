@@ -12,20 +12,31 @@ using System.Reflection;
 using Microsoft.Win32;
 using System.IO;
 using System.Xml.Linq;
+using System.Resources;
 
 namespace copy_image
 {
     public partial class Form2 : Form
     {
         public string imagePath = string.Empty;
+        ResourceManager l;
+        public string extName = "";
+
         public Form2(string path)
         {
             InitializeComponent();
+            l = new ResourceManager("copy_image.Resource", typeof(Form2).Assembly);
             imagePath = path;
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            string[] languages = l.GetString("t.Theme").Split(',');
+            extName = l.GetString("t.ExplorerExt");
+            foreach (string language in languages)
+            {
+                comboBoxThemeStyle.Items.Add(language);
+            }
             comboBoxThemeStyle.SelectedIndex = Settings.Default.ThemeStyle;
             if (Settings.Default.ThemeStyle == 2 || (GlobalSettings.IsDarkModeEnabled && Settings.Default.ThemeStyle == 0))
             {
@@ -34,7 +45,7 @@ namespace copy_image
             comboBoxLanguage.Text = Settings.Default.DefaultLanguage;
             if (imagePath != string.Empty)
             {
-                label1.Text += "\n" + imagePath + " 不是有效的文件路径。";
+                label1.Text += $"\n{imagePath} {l.GetString("t.NotValidPath")}";
             }
             int autoClose = Settings.Default.AutoClose;
             if (autoClose < trackBarAutoClose.Minimum)
@@ -85,8 +96,9 @@ namespace copy_image
             BackColor = GlobalSettings.dark[0]; // 暗色背景
             ForeColor = GlobalSettings.dark[1]; // 淺灰色前景
             // 對於每個控制元件，也應用相應的顏色
-            Control[] controlList = new Control[] { numericAutoSizeW, numericAutoSizeH, textBoxExePath, textBoxShellMenuItemName, textBoxFileTypes, comboBoxThemeStyle };
+            Control[] controlList = new Control[] { numericAutoSizeW, numericAutoSizeH, textBoxExePath, textBoxShellMenuItemName, textBoxFileTypes };
             Button[] buttonList = new Button[] { buttonShellMenuItemStatus, buttonShellMenuItemAdd, buttonShellMenuItemRemove };
+            ComboBox[] comboBoxList = new ComboBox[] { comboBoxLanguage, comboBoxThemeStyle };
             foreach (Control c in Controls)
             {
                 c.BackColor = GlobalSettings.dark[0];
@@ -107,7 +119,10 @@ namespace copy_image
                 c.ForeColor = GlobalSettings.dark[1];
                 c.FlatStyle = FlatStyle.Flat;
             }
-            comboBoxThemeStyle.FlatStyle = FlatStyle.Flat;
+            foreach (ComboBox c in comboBoxList)
+            {
+                c.FlatStyle = FlatStyle.Flat;
+            }
         }
 
         private void trackBarAutoClose_Scroll(object sender, EventArgs e)
@@ -125,7 +140,7 @@ namespace copy_image
             }
             else
             {
-                timeTitle += splitchar + val.ToString() + " 秒";
+                timeTitle += splitchar + val.ToString() + " " + l.GetString("t.Seconds");
             }
             groupBoxAutoClose.Text = timeTitle;
             if (val != Settings.Default.AutoClose)
@@ -160,7 +175,7 @@ namespace copy_image
                 string ftype = fileTypes[i];
                 if (!ShellMenuItemMgr.AddContextMenu(ftype, path, name))
                 {
-                    DialogResult result = MessageBox.Show("为文件类型 " + ftype + " 添加右键菜单项失败，请尝试以管理员权限运行。", ShellMenuItemMgr.extName, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
+                    DialogResult result = MessageBox.Show($".{ftype} {l.GetString("t.FailedAddMenu")}{l.GetString("t.TryAdmin")}", extName, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
                     if (result == DialogResult.Retry)
                     {
                         i--;
@@ -168,18 +183,18 @@ namespace copy_image
                     }
                     else if (result == DialogResult.Abort)
                     {
-                        infos.Add($".{ftype} 添加失败");
+                        infos.Add($".{ftype} {l.GetString("t.AddFail")}");
                         break;
                     }
                     else if (result == DialogResult.Ignore)
                     {
-                        infos.Add($".{ftype} 添加失败");
+                        infos.Add($".{ftype} {l.GetString("t.AddFail")}");
                         continue;
                     }
                 }
-                infos.Add($".{ftype} 添加成功");
+                infos.Add($".{ftype} {l.GetString("t.AddOK")}");
             }
-            MessageBox.Show(string.Join(Environment.NewLine, infos), ShellMenuItemMgr.extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(string.Join(Environment.NewLine, infos), extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void buttonShellMenuItemRemove_Click(object sender, EventArgs e)
@@ -191,7 +206,7 @@ namespace copy_image
                 string ftype = fileTypes[i];
                 if (!ShellMenuItemMgr.RemoveContextMenu(ftype))
                 {
-                    DialogResult result = MessageBox.Show("为文件类型 " + ftype + " 删除右键菜单项失败，请尝试以管理员权限运行。", ShellMenuItemMgr.extName, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
+                    DialogResult result = MessageBox.Show($".{ftype} {l.GetString("t.FailedRemoveMenu")}{l.GetString("t.TryAdmin")}", extName, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
                     if (result == DialogResult.Retry)
                     {
                         i--;
@@ -199,18 +214,18 @@ namespace copy_image
                     }
                     else if (result == DialogResult.Abort)
                     {
-                        infos.Add($".{ftype} 删除失败");
+                        infos.Add($".{ftype} {l.GetString("t.RmFail")}");
                         break;
                     }
                     else if (result == DialogResult.Ignore)
                     {
-                        infos.Add($".{ftype} 删除失败");
+                        infos.Add($".{ftype} {l.GetString("t.RmFail")}");
                         continue;
                     }
                 }
-                infos.Add($".{ftype} 删除成功");
+                infos.Add($".{ftype} {l.GetString("t.RmOK")}");
             }
-            MessageBox.Show(string.Join(Environment.NewLine, infos), ShellMenuItemMgr.extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(string.Join(Environment.NewLine, infos), extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void buttonShellMenuItemStatus_Click(object sender, EventArgs e)
@@ -222,14 +237,14 @@ namespace copy_image
                 string ftype = fileTypes[i];
                 if (ShellMenuItemMgr.CheckContextMenuExists(ftype))
                 {
-                    infos.Add($".{ftype} 已存在");
+                    infos.Add($".{ftype} {l.GetString("t.ExistsYes")}");
                 }
                 else
                 {
-                    infos.Add($".{ftype} 不存在");
+                    infos.Add($".{ftype} {l.GetString("t.ExistsNo")}");
                 }
             }
-            MessageBox.Show(string.Join(Environment.NewLine, infos), ShellMenuItemMgr.extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(string.Join(Environment.NewLine, infos), extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void checkBoxAutoSize_CheckedChanged(object sender, EventArgs e)

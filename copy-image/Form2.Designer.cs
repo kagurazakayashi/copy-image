@@ -232,7 +232,6 @@
             // 
             comboBoxThemeStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             comboBoxThemeStyle.FormattingEnabled = true;
-            comboBoxThemeStyle.Items.AddRange(new object[] { resources.GetString("comboBoxThemeStyle.Items"), resources.GetString("comboBoxThemeStyle.Items1"), resources.GetString("comboBoxThemeStyle.Items2") });
             resources.ApplyResources(comboBoxThemeStyle, "comboBoxThemeStyle");
             comboBoxThemeStyle.Name = "comboBoxThemeStyle";
             comboBoxThemeStyle.SelectedIndexChanged += comboBoxThemeStyle_SelectedIndexChanged;
@@ -242,7 +241,7 @@
             resources.ApplyResources(comboBoxLanguage, "comboBoxLanguage");
             comboBoxLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             comboBoxLanguage.FormattingEnabled = true;
-            comboBoxLanguage.Items.AddRange(new object[] { resources.GetString("comboBoxLanguage.Items"), resources.GetString("comboBoxLanguage.Items1"), resources.GetString("comboBoxLanguage.Items2") });
+            comboBoxLanguage.Items.AddRange(new object[] { resources.GetString("comboBoxLanguage.Items"), resources.GetString("comboBoxLanguage.Items1"), resources.GetString("comboBoxLanguage.Items2"), resources.GetString("comboBoxLanguage.Items3"), resources.GetString("comboBoxLanguage.Items4") });
             comboBoxLanguage.Name = "comboBoxLanguage";
             comboBoxLanguage.SelectedIndexChanged += comboBoxLanguage_SelectedIndexChanged;
             // 

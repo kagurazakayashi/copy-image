@@ -8,7 +8,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using copy_image.Properties;
-
+using System.Resources;
 
 namespace copy_image
 {
@@ -17,15 +17,17 @@ namespace copy_image
         public string imagePath = string.Empty;
         private int exitTime = 3000;
         int[] maxSize = new int[2] { -1, -1 };
+        ResourceManager l;
 
         public Form1(string path)
         {
             InitializeComponent();
+            l = new ResourceManager("copy_image.Resource", typeof(Form1).Assembly);
             imagePath = path;
             Text = path;
             // 設定窗體的開始位置為手動
             StartPosition = FormStartPosition.Manual;
-            Load += new EventHandler(Form1_Load);
+            //Load += new EventHandler(Form1_Load);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -83,7 +85,7 @@ namespace copy_image
                     int[] newSize = ImageResizer.ImageNewSize(image, maxSize[0], maxSize[1]);
                     if (newSize[0] != maxSize[0] || newSize[1] != maxSize[1])
                     {
-                        sizeText = $"{newSize[0]} x {newSize[1]} (已压缩 {sizeText} )";
+                        sizeText = $"{newSize[0]} x {newSize[1]} ({l.GetString("t.Compressed")} {sizeText} )";
                         image = ImageResizer.ResizeImage(image, newSize[0], newSize[1]);
                         imgSize[0] = image.Width;
                         imgSize[1] = image.Height;
@@ -91,7 +93,7 @@ namespace copy_image
                 }
                 pictureBox1.Image = image;
                 Clipboard.SetImage(image); // 將圖片複製到剪貼簿
-                Text = $"{sizeText} - 已复制 - " + imagePath;
+                Text = $"{sizeText} - {l.GetString("t.Copied")} - " + imagePath;
                 label1.Visible = false;
                 if (exitTime <= 0)
                 {
@@ -105,7 +107,7 @@ namespace copy_image
             }
             catch (Exception ex)
             {
-                if (MessageBox.Show(ex.Message, "图片复制失败", MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
+                if (MessageBox.Show(ex.Message, l.GetString("t.CopyFailed"), MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
                 {
                     Application.Exit();
                 }

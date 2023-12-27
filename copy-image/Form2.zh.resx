@@ -14197,7 +14197,7 @@
     <value>图片尺寸限制（像素）</value>
   </data>
   <data name="groupBoxAutoClose.Text" xml:space="preserve">
-    <value>预览窗口自动关闭的时间: 3s</value>
+    <value>预览窗口自动关闭的时间: </value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>使用方法：&lt;程序名称&gt;.exe &lt;图片文件路径&gt;

@@ -109,7 +109,7 @@ namespace copy_image.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("en")]
+        [global::System.Configuration.DefaultSettingValueAttribute("auto")]
         public string DefaultLanguage {
             get {
                 return ((string)(this["DefaultLanguage"]));

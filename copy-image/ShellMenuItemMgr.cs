@@ -11,7 +11,6 @@ namespace copy_image
     internal class ShellMenuItemMgr
     {
         private static string key = "OpenWithImageExe";
-        public static string extName = "资源管理器外壳扩展";
         public static bool AddContextMenu(string extension, string exec, string name)
         {
             string menuKeyPath = $@"Software\Classes\.{extension}\shell\{key}";
