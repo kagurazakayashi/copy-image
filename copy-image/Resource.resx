@@ -150,6 +150,9 @@
   <data name="t.NotValidPath" xml:space="preserve">
     <value>Not a valid file path.</value>
   </data>
+  <data name="t.OutMemory" xml:space="preserve">
+    <value>Unsupported image format.</value>
+  </data>
   <data name="t.RmFail" xml:space="preserve">
     <value>failed to delete!</value>
   </data>

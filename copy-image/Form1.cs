@@ -61,7 +61,7 @@ namespace copy_image
             BackColor = GlobalSettings.dark[0]; // 暗色背景
             ForeColor = GlobalSettings.dark[1]; // 淺灰色前景
             // 對於每個控制元件，也應用相應的顏色
-            foreach (Control c in this.Controls)
+            foreach (Control c in Controls)
             {
                 c.BackColor = GlobalSettings.dark[0];
                 c.ForeColor = GlobalSettings.dark[1];
@@ -70,11 +70,13 @@ namespace copy_image
 
         private void timerExit_Tick(object sender, EventArgs e)
         {
+            timerExit.Enabled = false;
             Application.Exit();
         }
 
         private void timerStart_Tick(object sender, EventArgs e)
         {
+            timerStart.Enabled = false;
             try
             {
                 Image image = Image.FromFile(imagePath); // 從指定路徑載入圖片
@@ -83,7 +85,7 @@ namespace copy_image
                 if (maxSize[0] > 0 && maxSize[1] > 0)
                 {
                     int[] newSize = ImageResizer.ImageNewSize(image, maxSize[0], maxSize[1]);
-                    if (newSize[0] != maxSize[0] || newSize[1] != maxSize[1])
+                    if (newSize[0] != imgSize[0] || newSize[1] != imgSize[1])
                     {
                         sizeText = $"{newSize[0]} x {newSize[1]} ({l.GetString("t.Compressed")} {sizeText} )";
                         image = ImageResizer.ResizeImage(image, newSize[0], newSize[1]);
@@ -107,7 +109,12 @@ namespace copy_image
             }
             catch (Exception ex)
             {
-                if (MessageBox.Show(ex.Message, l.GetString("t.CopyFailed"), MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
+                string msg = ex.Message;
+                if (msg.IndexOf("Out of memory") >= 0)
+                {
+                    msg = l.GetString("t.OutMemory");
+                }
+                if (MessageBox.Show(msg, l.GetString("t.CopyFailed"), MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
                 {
                     Application.Exit();
                 }

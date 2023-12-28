@@ -150,6 +150,9 @@
   <data name="t.NotValidPath" xml:space="preserve">
     <value>不是有效的文件路径。</value>
   </data>
+  <data name="t.OutMemory" xml:space="preserve">
+    <value>不支持的图片格式。</value>
+  </data>
   <data name="t.RmFail" xml:space="preserve">
     <value>删除失败！</value>
   </data>

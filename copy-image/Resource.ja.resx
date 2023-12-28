@@ -150,6 +150,9 @@
   <data name="t.NotValidPath" xml:space="preserve">
     <value>有効なファイル パスではありません。</value>
   </data>
+  <data name="t.OutMemory" xml:space="preserve">
+    <value>サポートされていない画像形式です。</value>
+  </data>
   <data name="t.RmFail" xml:space="preserve">
     <value>削除に失敗しました！</value>
   </data>

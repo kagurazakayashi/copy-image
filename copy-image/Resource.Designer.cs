@@ -160,6 +160,15 @@ namespace copy_image {
         }
         
         /// <summary>
+        ///   查找类似 Unsupported image format. 的本地化字符串。
+        /// </summary>
+        internal static string t_OutMemory {
+            get {
+                return ResourceManager.GetString("t.OutMemory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 failed to delete! 的本地化字符串。
         /// </summary>
         internal static string t_RmFail {
