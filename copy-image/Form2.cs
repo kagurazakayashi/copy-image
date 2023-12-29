@@ -13,6 +13,7 @@ using Microsoft.Win32;
 using System.IO;
 using System.Xml.Linq;
 using System.Resources;
+using System.Diagnostics;
 
 namespace copy_image
 {
@@ -99,14 +100,12 @@ namespace copy_image
             Control[] controlList = new Control[] { numericAutoSizeW, numericAutoSizeH, textBoxExePath, textBoxShellMenuItemName, textBoxFileTypes };
             Button[] buttonList = new Button[] { buttonShellMenuItemStatus, buttonShellMenuItemAdd, buttonShellMenuItemRemove };
             ComboBox[] comboBoxList = new ComboBox[] { comboBoxLanguage, comboBoxThemeStyle };
+            TextBox[] textBoxList = new TextBox[] { textBoxExePath, textBoxShellMenuItemName, textBoxFileTypes };
+            NumericUpDown[] numericUpDownList = new NumericUpDown[] { numericAutoSizeW, numericAutoSizeH };
             foreach (Control c in Controls)
             {
                 c.BackColor = GlobalSettings.dark[0];
                 c.ForeColor = GlobalSettings.dark[1];
-                //if (c is Button btn)
-                //{
-                //    btn.FlatStyle = FlatStyle.Flat;
-                //}
             }
             foreach (Control c in controlList)
             {
@@ -122,6 +121,14 @@ namespace copy_image
             foreach (ComboBox c in comboBoxList)
             {
                 c.FlatStyle = FlatStyle.Flat;
+            }
+            foreach (TextBox c in textBoxList)
+            {
+                c.BorderStyle = BorderStyle.FixedSingle;
+            }
+            foreach (NumericUpDown c in numericUpDownList)
+            {
+                c.BorderStyle = BorderStyle.FixedSingle;
             }
         }
 
@@ -272,6 +279,15 @@ namespace copy_image
         private void comboBoxLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
             Settings.Default.DefaultLanguage = comboBoxLanguage.Text;
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo()
+            {
+                FileName = "https://github.com/kagurazakayashi/copy-image",
+                UseShellExecute = true
+            });
         }
     }
 }

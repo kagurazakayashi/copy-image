@@ -55,6 +55,8 @@
             comboBoxThemeStyle = new System.Windows.Forms.ComboBox();
             comboBoxLanguage = new System.Windows.Forms.ComboBox();
             label8 = new System.Windows.Forms.Label();
+            linkLabel1 = new System.Windows.Forms.LinkLabel();
+            label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBoxAutoClose.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)trackBarAutoClose).BeginInit();
@@ -230,6 +232,7 @@
             // 
             // comboBoxThemeStyle
             // 
+            comboBoxThemeStyle.Cursor = System.Windows.Forms.Cursors.Hand;
             comboBoxThemeStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             comboBoxThemeStyle.FormattingEnabled = true;
             resources.ApplyResources(comboBoxThemeStyle, "comboBoxThemeStyle");
@@ -239,6 +242,7 @@
             // comboBoxLanguage
             // 
             resources.ApplyResources(comboBoxLanguage, "comboBoxLanguage");
+            comboBoxLanguage.Cursor = System.Windows.Forms.Cursors.Hand;
             comboBoxLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             comboBoxLanguage.FormattingEnabled = true;
             comboBoxLanguage.Items.AddRange(new object[] { resources.GetString("comboBoxLanguage.Items"), resources.GetString("comboBoxLanguage.Items1"), resources.GetString("comboBoxLanguage.Items2"), resources.GetString("comboBoxLanguage.Items3"), resources.GetString("comboBoxLanguage.Items4") });
@@ -250,10 +254,27 @@
             resources.ApplyResources(label8, "label8");
             label8.Name = "label8";
             // 
+            // linkLabel1
+            // 
+            linkLabel1.ActiveLinkColor = System.Drawing.Color.Yellow;
+            resources.ApplyResources(linkLabel1, "linkLabel1");
+            linkLabel1.LinkColor = System.Drawing.Color.FromArgb(0, 192, 192);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.TabStop = true;
+            linkLabel1.VisitedLinkColor = System.Drawing.Color.FromArgb(0, 192, 192);
+            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            // 
+            // label9
+            // 
+            resources.ApplyResources(label9, "label9");
+            label9.Name = "label9";
+            // 
             // Form2
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            Controls.Add(label9);
+            Controls.Add(linkLabel1);
             Controls.Add(comboBoxLanguage);
             Controls.Add(label8);
             Controls.Add(comboBoxThemeStyle);
@@ -308,5 +329,7 @@
         private System.Windows.Forms.ComboBox comboBoxThemeStyle;
         private System.Windows.Forms.ComboBox comboBoxLanguage;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label9;
     }
 }
