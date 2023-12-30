@@ -22,6 +22,8 @@ namespace copy_image
         public string imagePath = string.Empty;
         ResourceManager l;
         public string extName = "";
+        AniEgg aniegg = null;
+        private Size defaultSize;
 
         public Form2(string path)
         {
@@ -32,7 +34,12 @@ namespace copy_image
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            string[] languages = l.GetString("t.Theme").Split(',');
+            string languagesT = l.GetString("t.Theme");
+            string[] languages = new string[0];
+            if (languagesT != null)
+            {
+                languages = languagesT.Split(',');
+            }
             extName = l.GetString("t.ExplorerExt");
             foreach (string language in languages)
             {
@@ -90,6 +97,7 @@ namespace copy_image
             numericAutoSizeH.Value = maxSize[1];
             numericAutoSizeW.Enabled = Settings.Default.AutoSize;
             numericAutoSizeH.Enabled = Settings.Default.AutoSize;
+            defaultSize = Size;
         }
 
         private void applyDarkTheme()
@@ -288,6 +296,50 @@ namespace copy_image
                 FileName = "https://github.com/kagurazakayashi/copy-image",
                 UseShellExecute = true
             });
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (aniegg != null)
+            {
+                aniegg.Tick();
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (aniegg == null)
+            {
+                WindowState = FormWindowState.Normal;
+                Size = defaultSize;
+                MaximumSize = defaultSize;
+                MaximizeBox = false;
+                aniegg = new AniEgg(ClientSize.Height, pictureBox1, timer1);
+            }
+        }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (aniegg != null)
+            {
+                aniegg.Down();
+            }
+        }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (aniegg != null)
+            {
+                aniegg.Move();
+            }
+        }
+
+        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (aniegg != null)
+            {
+                aniegg.Up();
+            }
         }
     }
 }

@@ -36,6 +36,7 @@ namespace copy_image
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"Failed to set menu item for *.{extension} : {ex.Message}");
                 return false;
             }
             try
@@ -58,6 +59,7 @@ namespace copy_image
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"Failed to add command for *.{extension}: {ex.Message}");
                 return false;
             }
         }

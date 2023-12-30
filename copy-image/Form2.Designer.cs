@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             pictureBox1 = new System.Windows.Forms.PictureBox();
             label1 = new System.Windows.Forms.Label();
@@ -57,6 +58,7 @@
             label8 = new System.Windows.Forms.Label();
             linkLabel1 = new System.Windows.Forms.LinkLabel();
             label9 = new System.Windows.Forms.Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBoxAutoClose.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)trackBarAutoClose).BeginInit();
@@ -68,10 +70,15 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             pictureBox1.Image = Properties.Resources.copy_image_1;
             resources.ApplyResources(pictureBox1, "pictureBox1");
             pictureBox1.Name = "pictureBox1";
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            pictureBox1.MouseDown += pictureBox1_MouseDown;
+            pictureBox1.MouseMove += pictureBox1_MouseMove;
+            pictureBox1.MouseUp += pictureBox1_MouseUp;
             // 
             // label1
             // 
@@ -269,10 +276,16 @@
             resources.ApplyResources(label9, "label9");
             label9.Name = "label9";
             // 
+            // timer1
+            // 
+            timer1.Interval = 30;
+            timer1.Tick += timer1_Tick;
+            // 
             // Form2
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            Controls.Add(pictureBox1);
             Controls.Add(label9);
             Controls.Add(linkLabel1);
             Controls.Add(comboBoxLanguage);
@@ -283,7 +296,6 @@
             Controls.Add(groupBox1);
             Controls.Add(groupBoxAutoClose);
             Controls.Add(label1);
-            Controls.Add(pictureBox1);
             Name = "Form2";
             FormClosing += Form2_FormClosing;
             Load += Form2_Load;
@@ -331,5 +343,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Timer timer1;
     }
 }
