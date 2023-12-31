@@ -10,7 +10,7 @@ namespace copy_image
 {
     internal class ShellMenuItemMgr
     {
-        private static string key = "OpenWithImageExe";
+        private static string key = "CopyImageToClipboard";
         public static bool AddContextMenu(string extension, string exec, string name)
         {
             string menuKeyPath = $@"Software\Classes\.{extension}\shell\{key}";

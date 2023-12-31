@@ -51,8 +51,7 @@ namespace copy_image
             // 如果回彈高度太小，則停止動畫
             if (Math.Abs(velocityY) < 0.01 || runTime >= runStop)
             {
-                timer.Stop();
-                box.Cursor = Cursors.SizeAll;
+                Stop();
             }
         }
 
@@ -75,6 +74,12 @@ namespace copy_image
 
         public void Up() {
             dragging = false;
+        }
+
+        public void Stop()
+        {
+            timer.Stop();
+            box.Cursor = Cursors.SizeAll;
         }
     }
 }

@@ -121,5 +121,11 @@ namespace copy_image
                 return;
             }
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timerStart.Enabled = false;
+            timerExit.Enabled = false;
+        }
     }
 }

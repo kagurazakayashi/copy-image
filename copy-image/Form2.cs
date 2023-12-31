@@ -66,7 +66,7 @@ namespace copy_image
             }
             trackBarAutoClose.Value = autoClose;
             trackBarAutoClose_Scroll(sender, e);
-            textBoxExePath.Text = Assembly.GetExecutingAssembly().Location;
+            textBoxExePath.Text = Assembly.GetExecutingAssembly().Location.Replace(".dll", ".exe");
             if (Settings.Default.MenuItemName.Length > 0)
             {
                 textBoxShellMenuItemName.Text = Settings.Default.MenuItemName;
@@ -166,6 +166,10 @@ namespace copy_image
 
         private void Form2_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (aniegg != null)
+            {
+                aniegg.Stop();
+            }
             Settings.Default.Save();
         }
 

@@ -70,6 +70,7 @@ namespace copy_image
             Controls.Add(pictureBox1);
             Name = "Form1";
             TopMost = true;
+            FormClosing += Form1_FormClosing;
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
