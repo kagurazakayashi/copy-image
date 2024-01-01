@@ -15,6 +15,17 @@
     <PackageProjectUrl>https://github.com/kagurazakayashi/copy-image</PackageProjectUrl>
     <Company>$(Authors)</Company>
     <Title>CopyImage</Title>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <!-- anycpu x86 Itanium arm arm64 x64 -->
+    <PlatformTarget>anycpu</PlatformTarget>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>full</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -38,6 +49,13 @@
 
   <ItemGroup>
     <Folder Include="icon\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
