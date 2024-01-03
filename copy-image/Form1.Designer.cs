@@ -31,49 +31,45 @@ namespace copy_image
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            pictureBox1 = new PictureBox();
-            timerExit = new Timer(components);
-            label1 = new Label();
-            timerStart = new Timer(components);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            SuspendLayout();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timerExit = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.timerStart = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            resources.ApplyResources(pictureBox1, "pictureBox1");
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.TabStop = false;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
             // 
             // timerExit
             // 
-            timerExit.Interval = 3000;
-            timerExit.Tick += timerExit_Tick;
+            this.timerExit.Interval = 3000;
             // 
             // label1
             // 
-            resources.ApplyResources(label1, "label1");
-            label1.Cursor = Cursors.WaitCursor;
-            label1.FlatStyle = FlatStyle.Flat;
-            label1.Name = "label1";
-            // 
-            // timerStart
-            // 
-            timerStart.Tick += timerStart_Tick;
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Name = "label1";
             // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
-            AutoScaleMode = AutoScaleMode.Dpi;
-            Controls.Add(label1);
-            Controls.Add(pictureBox1);
-            Name = "Form1";
-            TopMost = true;
-            FormClosing += Form1_FormClosing;
-            Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ResumeLayout(false);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
+            this.Name = "Form1";
+            this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion

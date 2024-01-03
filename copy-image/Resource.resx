@@ -117,55 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="t.AddFail" xml:space="preserve">
+  <data name="AddFail" xml:space="preserve">
     <value>add failed!</value>
   </data>
-  <data name="t.AddOK" xml:space="preserve">
+  <data name="AddOK" xml:space="preserve">
     <value>added successfully.</value>
   </data>
-  <data name="t.Compressed" xml:space="preserve">
+  <data name="Compressed" xml:space="preserve">
     <value>Compressed</value>
   </data>
-  <data name="t.Copied" xml:space="preserve">
+  <data name="Copied" xml:space="preserve">
     <value>Copied</value>
   </data>
-  <data name="t.CopyFailed" xml:space="preserve">
+  <data name="CopyFailed" xml:space="preserve">
     <value>Image copy failed</value>
   </data>
-  <data name="t.ExistsNo" xml:space="preserve">
+  <data name="ExistsNo" xml:space="preserve">
     <value>does not exist!</value>
   </data>
-  <data name="t.ExistsYes" xml:space="preserve">
+  <data name="ExistsYes" xml:space="preserve">
     <value>existed.</value>
   </data>
-  <data name="t.ExplorerExt" xml:space="preserve">
+  <data name="ExplorerExt" xml:space="preserve">
     <value>Explorer extension</value>
   </data>
-  <data name="t.FailedAddMenu" xml:space="preserve">
+  <data name="FailedAddMenu" xml:space="preserve">
     <value>Failed to add right-click menu item, </value>
   </data>
-  <data name="t.FailedRemoveMenu" xml:space="preserve">
+  <data name="FailedRemoveMenu" xml:space="preserve">
     <value>Failed to delete right-click menu item, </value>
   </data>
-  <data name="t.NotValidPath" xml:space="preserve">
+  <data name="NotValidPath" xml:space="preserve">
     <value>Not a valid file path.</value>
   </data>
-  <data name="t.OutMemory" xml:space="preserve">
+  <data name="OutMemory" xml:space="preserve">
     <value>Unsupported image format.</value>
   </data>
-  <data name="t.RmFail" xml:space="preserve">
+  <data name="RmFail" xml:space="preserve">
     <value>failed to delete!</value>
   </data>
-  <data name="t.RmOK" xml:space="preserve">
+  <data name="RmOK" xml:space="preserve">
     <value>successfully deleted.</value>
   </data>
-  <data name="t.Seconds" xml:space="preserve">
+  <data name="Seconds" xml:space="preserve">
     <value>Seconds</value>
   </data>
-  <data name="t.Theme" xml:space="preserve">
+  <data name="Theme" xml:space="preserve">
     <value>Follow the system,Bright,Dark</value>
   </data>
-  <data name="t.TryAdmin" xml:space="preserve">
+  <data name="TryAdmin" xml:space="preserve">
     <value>Please try running with administrator rights.</value>
   </data>
 </root>

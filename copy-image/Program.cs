@@ -13,7 +13,7 @@ namespace copy_image
         static void Main(string[] args)
         {
             //ApplicationConfiguration.Initialize();
-            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            //Application.SetHighDpiMode(HighDpiMode.SystemAware); # .net5
             UpdateDarkModeStatus();
 
             // ›d»Î’Z—‘

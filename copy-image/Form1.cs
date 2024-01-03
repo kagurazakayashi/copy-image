@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using copy_image.Properties;
@@ -25,19 +24,19 @@ namespace copy_image
             l = new ResourceManager("copy_image.Resource", typeof(Form1).Assembly);
             imagePath = path;
             Text = path;
-            // ÔO¶¨´°ówµÄé_Ê¼Î»ÖÃžéÊÖ„Ó
+            // ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½wï¿½ï¿½ï¿½_Ê¼Î»ï¿½Ãžï¿½ï¿½Ö„ï¿½
             StartPosition = FormStartPosition.Manual;
             //Load += new EventHandler(Form1_Load);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // «@È¡ÎžÄ»µÄ¹¤×÷…^Óò´óÐ¡£¨²»°üÀ¨¹¤×÷ÁÐ£©
+            // ï¿½@È¡ÎžÄ»ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½^ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½
             Rectangle screen = Screen.PrimaryScreen.WorkingArea;
-            // ÔO¶¨´°ówµÄÎ»ÖÃžéÎžÄ»µÄÓÒÏÂ½Ç
+            // ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½wï¿½ï¿½Î»ï¿½Ãžï¿½ÎžÄ»ï¿½ï¿½ï¿½ï¿½ï¿½Â½ï¿½
             int x = screen.Width - Width;
             int y = screen.Height - Height;
-            // ‘ªÓÃÓ‹Ëã³öµÄÎ»ÖÃ
+            // ï¿½ï¿½ï¿½ï¿½Ó‹ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
             Location = new Point(x, y);
             if (Settings.Default.ThemeStyle == 2 || (GlobalSettings.IsDarkModeEnabled && Settings.Default.ThemeStyle == 0))
             {
@@ -58,9 +57,9 @@ namespace copy_image
 
         private void applyDarkTheme()
         {
-            BackColor = GlobalSettings.dark[0]; // °µÉ«±³¾°
-            ForeColor = GlobalSettings.dark[1]; // œ\»ÒÉ«Ç°¾°
-            // Œ¦ì¶Ã¿‚€¿ØÖÆÔª¼þ£¬Ò²‘ªÓÃÏà‘ªµÄîÉ«
+            BackColor = GlobalSettings.dark[0]; // ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½
+            ForeColor = GlobalSettings.dark[1]; // ï¿½\ï¿½ï¿½É«Ç°ï¿½ï¿½
+            // ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
             foreach (Control c in Controls)
             {
                 c.BackColor = GlobalSettings.dark[0];
@@ -79,7 +78,7 @@ namespace copy_image
             timerStart.Enabled = false;
             try
             {
-                Image image = Image.FromFile(imagePath); // ÄÖ¸¶¨Â·½ÝdÈëˆDÆ¬
+                Image image = Image.FromFile(imagePath); // ï¿½ï¿½Ö¸ï¿½ï¿½Â·ï¿½ï¿½ï¿½dï¿½ï¿½DÆ¬
                 int[] imgSize = new int[2] { image.Width, image.Height };
                 string sizeText = $"{imgSize[0]} x {imgSize[1]}";
                 if (maxSize[0] > 0 && maxSize[1] > 0)
@@ -87,15 +86,15 @@ namespace copy_image
                     int[] newSize = ImageResizer.ImageNewSize(image, maxSize[0], maxSize[1]);
                     if (newSize[0] != imgSize[0] || newSize[1] != imgSize[1])
                     {
-                        sizeText = $"{newSize[0]} x {newSize[1]} ({l.GetString("t.Compressed")} {sizeText} )";
+                        sizeText = $"{newSize[0]} x {newSize[1]} ({l.GetString("Compressed")} {sizeText} )";
                         image = ImageResizer.ResizeImage(image, newSize[0], newSize[1]);
                         imgSize[0] = image.Width;
                         imgSize[1] = image.Height;
                     }
                 }
                 pictureBox1.Image = image;
-                Clipboard.SetImage(image); // Œ¢ˆDÆ¬Ñ}Ñuµ½¼ôÙN²¾
-                Text = $"{sizeText} - {l.GetString("t.Copied")} - " + imagePath;
+                Clipboard.SetImage(image); // ï¿½ï¿½ï¿½DÆ¬ï¿½}ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½
+                Text = $"{sizeText} - {l.GetString("Copied")} - " + imagePath;
                 label1.Visible = false;
                 if (exitTime <= 0)
                 {
@@ -112,9 +111,9 @@ namespace copy_image
                 string msg = ex.Message;
                 if (msg.IndexOf("Out of memory") >= 0)
                 {
-                    msg = l.GetString("t.OutMemory");
+                    msg = l.GetString("OutMemory");
                 }
-                if (MessageBox.Show(msg, l.GetString("t.CopyFailed"), MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
+                if (MessageBox.Show(msg, l.GetString("CopyFailed"), MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
                 {
                     Application.Exit();
                 }

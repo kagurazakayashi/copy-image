@@ -9,8 +9,8 @@
 
 ## 系统要求
 
-- 至少 Windows 7, 32 位 或 64 位
-- 至少 .NET Framework 5.0
+- 至少 Windows XP, 32 位 或 64 位
+- 至少 .NET Framework 4.0
 
 ## 使用
 

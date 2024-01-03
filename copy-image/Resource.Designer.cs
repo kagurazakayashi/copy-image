@@ -65,7 +65,7 @@ namespace copy_image {
         /// </summary>
         internal static string t_AddFail {
             get {
-                return ResourceManager.GetString("t.AddFail", resourceCulture);
+                return ResourceManager.GetString("AddFail", resourceCulture);
             }
         }
         
@@ -74,7 +74,7 @@ namespace copy_image {
         /// </summary>
         internal static string t_AddOK {
             get {
-                return ResourceManager.GetString("t.AddOK", resourceCulture);
+                return ResourceManager.GetString("AddOK", resourceCulture);
             }
         }
         
@@ -83,7 +83,7 @@ namespace copy_image {
         /// </summary>
         internal static string t_Compressed {
             get {
-                return ResourceManager.GetString("t.Compressed", resourceCulture);
+                return ResourceManager.GetString("Compressed", resourceCulture);
             }
         }
         
@@ -92,7 +92,7 @@ namespace copy_image {
         /// </summary>
         internal static string t_Copied {
             get {
-                return ResourceManager.GetString("t.Copied", resourceCulture);
+                return ResourceManager.GetString("Copied", resourceCulture);
             }
         }
         
@@ -101,7 +101,7 @@ namespace copy_image {
         /// </summary>
         internal static string t_CopyFailed {
             get {
-                return ResourceManager.GetString("t.CopyFailed", resourceCulture);
+                return ResourceManager.GetString("CopyFailed", resourceCulture);
             }
         }
         
@@ -110,7 +110,7 @@ namespace copy_image {
         /// </summary>
         internal static string t_ExistsNo {
             get {
-                return ResourceManager.GetString("t.ExistsNo", resourceCulture);
+                return ResourceManager.GetString("ExistsNo", resourceCulture);
             }
         }
         
@@ -119,7 +119,7 @@ namespace copy_image {
         /// </summary>
         internal static string t_ExistsYes {
             get {
-                return ResourceManager.GetString("t.ExistsYes", resourceCulture);
+                return ResourceManager.GetString("ExistsYes", resourceCulture);
             }
         }
         
@@ -128,7 +128,7 @@ namespace copy_image {
         /// </summary>
         internal static string t_ExplorerExt {
             get {
-                return ResourceManager.GetString("t.ExplorerExt", resourceCulture);
+                return ResourceManager.GetString("ExplorerExt", resourceCulture);
             }
         }
         
@@ -137,7 +137,7 @@ namespace copy_image {
         /// </summary>
         internal static string t_FailedAddMenu {
             get {
-                return ResourceManager.GetString("t.FailedAddMenu", resourceCulture);
+                return ResourceManager.GetString("FailedAddMenu", resourceCulture);
             }
         }
         
@@ -146,7 +146,7 @@ namespace copy_image {
         /// </summary>
         internal static string t_FailedRemoveMenu {
             get {
-                return ResourceManager.GetString("t.FailedRemoveMenu", resourceCulture);
+                return ResourceManager.GetString("FailedRemoveMenu", resourceCulture);
             }
         }
         
@@ -155,7 +155,7 @@ namespace copy_image {
         /// </summary>
         internal static string t_NotValidPath {
             get {
-                return ResourceManager.GetString("t.NotValidPath", resourceCulture);
+                return ResourceManager.GetString("NotValidPath", resourceCulture);
             }
         }
         
@@ -164,7 +164,7 @@ namespace copy_image {
         /// </summary>
         internal static string t_OutMemory {
             get {
-                return ResourceManager.GetString("t.OutMemory", resourceCulture);
+                return ResourceManager.GetString("OutMemory", resourceCulture);
             }
         }
         
@@ -173,7 +173,7 @@ namespace copy_image {
         /// </summary>
         internal static string t_RmFail {
             get {
-                return ResourceManager.GetString("t.RmFail", resourceCulture);
+                return ResourceManager.GetString("RmFail", resourceCulture);
             }
         }
         
@@ -182,7 +182,7 @@ namespace copy_image {
         /// </summary>
         internal static string t_RmOK {
             get {
-                return ResourceManager.GetString("t.RmOK", resourceCulture);
+                return ResourceManager.GetString("RmOK", resourceCulture);
             }
         }
         
@@ -191,7 +191,7 @@ namespace copy_image {
         /// </summary>
         internal static string t_Seconds {
             get {
-                return ResourceManager.GetString("t.Seconds", resourceCulture);
+                return ResourceManager.GetString("Seconds", resourceCulture);
             }
         }
         
@@ -200,7 +200,7 @@ namespace copy_image {
         /// </summary>
         internal static string t_Theme {
             get {
-                return ResourceManager.GetString("t.Theme", resourceCulture);
+                return ResourceManager.GetString("Theme", resourceCulture);
             }
         }
         
@@ -209,7 +209,7 @@ namespace copy_image {
         /// </summary>
         internal static string t_TryAdmin {
             get {
-                return ResourceManager.GetString("t.TryAdmin", resourceCulture);
+                return ResourceManager.GetString("TryAdmin", resourceCulture);
             }
         }
     }

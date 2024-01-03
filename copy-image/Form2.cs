@@ -34,13 +34,13 @@ namespace copy_image
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            string languagesT = l.GetString("t.Theme");
+            string languagesT = l.GetString("Theme");
             string[] languages = new string[0];
             if (languagesT != null)
             {
                 languages = languagesT.Split(',');
             }
-            extName = l.GetString("t.ExplorerExt");
+            extName = l.GetString("ExplorerExt");
             foreach (string language in languages)
             {
                 comboBoxThemeStyle.Items.Add(language);
@@ -53,7 +53,7 @@ namespace copy_image
             comboBoxLanguage.Text = Settings.Default.DefaultLanguage;
             if (imagePath != string.Empty)
             {
-                label1.Text += $"\n{imagePath} {l.GetString("t.NotValidPath")}";
+                label1.Text += $"\n{imagePath} {l.GetString("NotValidPath")}";
             }
             int autoClose = Settings.Default.AutoClose;
             if (autoClose < trackBarAutoClose.Minimum)
@@ -142,7 +142,7 @@ namespace copy_image
 
         private void trackBarAutoClose_Scroll(object sender, EventArgs e)
         {
-            string splitchar = ": ";
+            char splitchar = ':';
             string timeTitle = groupBoxAutoClose.Text.Split(splitchar)[0];
             int val = trackBarAutoClose.Value;
             if (val == trackBarAutoClose.Minimum)
@@ -155,7 +155,7 @@ namespace copy_image
             }
             else
             {
-                timeTitle += splitchar + val.ToString() + " " + l.GetString("t.Seconds");
+                timeTitle += splitchar + val.ToString() + " " + l.GetString("Seconds");
             }
             groupBoxAutoClose.Text = timeTitle;
             if (val != Settings.Default.AutoClose)
@@ -194,7 +194,7 @@ namespace copy_image
                 string ftype = fileTypes[i];
                 if (!ShellMenuItemMgr.AddContextMenu(ftype, path, name))
                 {
-                    DialogResult result = MessageBox.Show($".{ftype} {l.GetString("t.FailedAddMenu")}{l.GetString("t.TryAdmin")}", extName, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
+                    DialogResult result = MessageBox.Show($".{ftype} {l.GetString("FailedAddMenu")}{l.GetString("TryAdmin")}", extName, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
                     if (result == DialogResult.Retry)
                     {
                         i--;
@@ -202,16 +202,16 @@ namespace copy_image
                     }
                     else if (result == DialogResult.Abort)
                     {
-                        infos.Add($".{ftype} {l.GetString("t.AddFail")}");
+                        infos.Add($".{ftype} {l.GetString("AddFail")}");
                         break;
                     }
                     else if (result == DialogResult.Ignore)
                     {
-                        infos.Add($".{ftype} {l.GetString("t.AddFail")}");
+                        infos.Add($".{ftype} {l.GetString("AddFail")}");
                         continue;
                     }
                 }
-                infos.Add($".{ftype} {l.GetString("t.AddOK")}");
+                infos.Add($".{ftype} {l.GetString("AddOK")}");
             }
             MessageBox.Show(string.Join(Environment.NewLine, infos), extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -225,7 +225,7 @@ namespace copy_image
                 string ftype = fileTypes[i];
                 if (!ShellMenuItemMgr.RemoveContextMenu(ftype))
                 {
-                    DialogResult result = MessageBox.Show($".{ftype} {l.GetString("t.FailedRemoveMenu")}{l.GetString("t.TryAdmin")}", extName, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
+                    DialogResult result = MessageBox.Show($".{ftype} {l.GetString("FailedRemoveMenu")}{l.GetString("TryAdmin")}", extName, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
                     if (result == DialogResult.Retry)
                     {
                         i--;
@@ -233,16 +233,16 @@ namespace copy_image
                     }
                     else if (result == DialogResult.Abort)
                     {
-                        infos.Add($".{ftype} {l.GetString("t.RmFail")}");
+                        infos.Add($".{ftype} {l.GetString("RmFail")}");
                         break;
                     }
                     else if (result == DialogResult.Ignore)
                     {
-                        infos.Add($".{ftype} {l.GetString("t.RmFail")}");
+                        infos.Add($".{ftype} {l.GetString("RmFail")}");
                         continue;
                     }
                 }
-                infos.Add($".{ftype} {l.GetString("t.RmOK")}");
+                infos.Add($".{ftype} {l.GetString("RmOK")}");
             }
             MessageBox.Show(string.Join(Environment.NewLine, infos), extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -256,11 +256,11 @@ namespace copy_image
                 string ftype = fileTypes[i];
                 if (ShellMenuItemMgr.CheckContextMenuExists(ftype))
                 {
-                    infos.Add($".{ftype} {l.GetString("t.ExistsYes")}");
+                    infos.Add($".{ftype} {l.GetString("ExistsYes")}");
                 }
                 else
                 {
-                    infos.Add($".{ftype} {l.GetString("t.ExistsNo")}");
+                    infos.Add($".{ftype} {l.GetString("ExistsNo")}");
                 }
             }
             MessageBox.Show(string.Join(Environment.NewLine, infos), extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
