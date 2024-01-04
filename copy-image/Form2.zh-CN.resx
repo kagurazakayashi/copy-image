@@ -117,89 +117,82 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pictureBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>使用方法：&lt;程序名称&gt;.exe &lt;图片文件路径&gt;
+不提供 &lt;图片文件路径&gt; 将显示本配置窗口。</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="labelAutoCloseInfo1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>222, 21</value>
   </data>
-  <data name="pictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
+  <data name="labelAutoCloseInfo1.Text" xml:space="preserve">
+    <value>|后台复制（最小化预览窗口）</value>
   </data>
-  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>284, 261</value>
+  <data name="labelAutoCloseInfo2.Text" xml:space="preserve">
+    <value>不要自动关闭预览窗口|</value>
   </data>
-  <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
+  <data name="groupBoxAutoClose.Text" xml:space="preserve">
+    <value>预览窗口自动关闭的时间: </value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="buttonShellMenuItemStatus.Text" xml:space="preserve">
+    <value>查看右键菜单状态</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
-    <value>pictureBox1</value>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 21</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label4.Text" xml:space="preserve">
+    <value>支持的文件类型（以 , 分隔）:</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="buttonShellMenuItemAdd.Text" xml:space="preserve">
+    <value>添加右键菜单</value>
   </data>
-  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="buttonShellMenuItemRemove.Text" xml:space="preserve">
+    <value>移除右键菜单</value>
   </data>
-  <metadata name="timerExit.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
+  <data name="textBoxShellMenuItemName.Text" xml:space="preserve">
+    <value>复制图片到剪贴板</value>
   </data>
-  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft YaHei UI, 14.25pt</value>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 21</value>
   </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="label3.Text" xml:space="preserve">
+    <value>右键菜单名称:</value>
   </data>
-  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 21</value>
   </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>284, 261</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>程序文件路径:</value>
   </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>图片文件的右键菜单项</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Copying</value>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 21</value>
   </data>
-  <data name="label1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
+  <data name="label6.Text" xml:space="preserve">
+    <value>高度</value>
   </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 21</value>
   </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label5.Text" xml:space="preserve">
+    <value>宽度</value>
   </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="checkBoxAutoSize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>321, 25</value>
   </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="checkBoxAutoSize.Text" xml:space="preserve">
+    <value>如果图片大于以下尺寸，先缩小到该尺寸:</value>
   </data>
-  <metadata name="timerStart.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>127, 17</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>96, 96</value>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>图片尺寸限制（像素）</value>
   </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>284, 261</value>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 21</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>主题外观:</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -14200,28 +14193,7 @@
         AAAAAAAAAAAAAA==
 </value>
   </data>
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>Manual</value>
-  </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Copy image to clipboard</value>
-  </data>
-  <data name="&gt;&gt;timerExit.Name" xml:space="preserve">
-    <value>timerExit</value>
-  </data>
-  <data name="&gt;&gt;timerExit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;timerStart.Name" xml:space="preserve">
-    <value>timerStart</value>
-  </data>
-  <data name="&gt;&gt;timerStart.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Form1</value>
-  </data>
-  <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>配置（以下设置需要重新运行程序后生效）</value>
   </data>
 </root>

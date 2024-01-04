@@ -63,9 +63,9 @@ namespace copy_image.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap copy_image_1 {
+        internal static System.Drawing.Bitmap copyimage1 {
             get {
-                object obj = ResourceManager.GetObject("copy-image-1", resourceCulture);
+                object obj = ResourceManager.GetObject("copyimage1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace copy_image.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap copy_image_2 {
+        internal static System.Drawing.Bitmap copyimage2 {
             get {
-                object obj = ResourceManager.GetObject("copy-image-2", resourceCulture);
+                object obj = ResourceManager.GetObject("copyimage2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

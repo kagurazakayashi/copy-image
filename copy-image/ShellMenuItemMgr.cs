@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace copy_image
@@ -70,7 +69,7 @@ namespace copy_image
             string menuKeyPath = $@"Software\Classes\.{extension}\shell\{key}";
             try
             {
-                Registry.CurrentUser.DeleteSubKeyTree(menuKeyPath, false);
+                Registry.CurrentUser.DeleteSubKeyTree(menuKeyPath);
                 Console.WriteLine($"Context menu for *.{extension} files removed successfully.");
                 return true;
             }

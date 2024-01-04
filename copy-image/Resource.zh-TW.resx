@@ -117,11 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="copyimage1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\copy-image-1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AddFail" xml:space="preserve">
+    <value>新增失敗！</value>
   </data>
-  <data name="copyimage2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\copy-image-2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="AddOK" xml:space="preserve">
+    <value>新增成功。</value>
+  </data>
+  <data name="Compressed" xml:space="preserve">
+    <value>已壓縮</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>已複製</value>
+  </data>
+  <data name="CopyFailed" xml:space="preserve">
+    <value>圖片複製失敗</value>
+  </data>
+  <data name="ExistsNo" xml:space="preserve">
+    <value>不存在！</value>
+  </data>
+  <data name="ExistsYes" xml:space="preserve">
+    <value>已存在。</value>
+  </data>
+  <data name="ExplorerExt" xml:space="preserve">
+    <value>資源管理器擴充套件</value>
+  </data>
+  <data name="FailedAddMenu" xml:space="preserve">
+    <value>新增右鍵選單項失敗，</value>
+  </data>
+  <data name="FailedRemoveMenu" xml:space="preserve">
+    <value>刪除右鍵選單項失敗，</value>
+  </data>
+  <data name="NotValidPath" xml:space="preserve">
+    <value>不是有效的檔案路徑。</value>
+  </data>
+  <data name="OutMemory" xml:space="preserve">
+    <value>不支援的圖片格式。</value>
+  </data>
+  <data name="RmFail" xml:space="preserve">
+    <value>刪除失敗！</value>
+  </data>
+  <data name="RmOK" xml:space="preserve">
+    <value>刪除成功。</value>
+  </data>
+  <data name="Seconds" xml:space="preserve">
+    <value>秒</value>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>跟隨系統,亮色,暗色</value>
+  </data>
+  <data name="TryAdmin" xml:space="preserve">
+    <value>請嘗試以管理員許可權執行。</value>
   </data>
 </root>

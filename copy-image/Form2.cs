@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using copy_image.Properties;
 using System.Reflection;
@@ -142,8 +141,8 @@ namespace copy_image
 
         private void trackBarAutoClose_Scroll(object sender, EventArgs e)
         {
-            char splitchar = ':';
-            string timeTitle = groupBoxAutoClose.Text.Split(splitchar)[0];
+            string splitchar = ": ";
+            string timeTitle = groupBoxAutoClose.Text.Split(new string[] { splitchar }, StringSplitOptions.RemoveEmptyEntries)[0];
             int val = trackBarAutoClose.Value;
             if (val == trackBarAutoClose.Minimum)
             {
@@ -213,7 +212,7 @@ namespace copy_image
                 }
                 infos.Add($".{ftype} {l.GetString("AddOK")}");
             }
-            MessageBox.Show(string.Join(Environment.NewLine, infos), extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(string.Join(Environment.NewLine, infos.ToArray()), extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void buttonShellMenuItemRemove_Click(object sender, EventArgs e)
@@ -244,7 +243,7 @@ namespace copy_image
                 }
                 infos.Add($".{ftype} {l.GetString("RmOK")}");
             }
-            MessageBox.Show(string.Join(Environment.NewLine, infos), extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(string.Join(Environment.NewLine, infos.ToArray()), extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void buttonShellMenuItemStatus_Click(object sender, EventArgs e)
@@ -263,7 +262,7 @@ namespace copy_image
                     infos.Add($".{ftype} {l.GetString("ExistsNo")}");
                 }
             }
-            MessageBox.Show(string.Join(Environment.NewLine, infos), extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(string.Join(Environment.NewLine, infos.ToArray()), extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void checkBoxAutoSize_CheckedChanged(object sender, EventArgs e)

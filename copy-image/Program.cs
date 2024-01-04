@@ -17,11 +17,31 @@ namespace copy_image
             UpdateDarkModeStatus();
 
             // ÝdÈëÕZÑÔ
+            CultureInfo ci = CultureInfo.CurrentCulture;
+            string langUse = "en-US";
             if (Settings.Default.DefaultLanguage.Length > 1 && Settings.Default.DefaultLanguage != "auto")
             {
-                CultureInfo ci = new CultureInfo(Settings.Default.DefaultLanguage);
-                Thread.CurrentThread.CurrentUICulture = ci;
+                langUse = Settings.Default.DefaultLanguage;
             }
+            string[] lang = ci.Name.Split('-');
+            if (lang[0] == "zh")
+            {
+                if (lang[1] == "Hant" || lang[1] == "HK" || lang[1] == "TW" || lang[1] == "MO")
+                {
+                    langUse = "zh-TW";
+                }
+                else
+                {
+                    langUse = "zh-CN";
+                }
+            }
+            else if (lang[0] == "ja")
+            {
+                langUse = "ja-JP";
+            }
+            ci = new CultureInfo(langUse);
+            Thread.CurrentThread.CurrentUICulture = ci;
+            Thread.CurrentThread.CurrentCulture = ci;
 
             if (args.Length > 0 && IsValidFilePath(args[0]))
             {
