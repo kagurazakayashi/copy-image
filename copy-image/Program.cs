@@ -17,11 +17,7 @@ namespace copy_image
             UpdateDarkModeStatus();
 
             // ÝdÈëÕZÑÔ
-            if (Settings.Default.DefaultLanguage.Length > 1 && Settings.Default.DefaultLanguage != "auto")
-            {
-                CultureInfo ci = new CultureInfo(Settings.Default.DefaultLanguage);
-                Thread.CurrentThread.CurrentUICulture = ci;
-            }
+            LanguageMgr.autoSetLanguage();
 
             if (args.Length > 0 && IsValidFilePath(args[0]))
             {

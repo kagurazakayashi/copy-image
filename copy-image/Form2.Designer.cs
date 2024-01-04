@@ -252,7 +252,6 @@
             comboBoxLanguage.Cursor = System.Windows.Forms.Cursors.Hand;
             comboBoxLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             comboBoxLanguage.FormattingEnabled = true;
-            comboBoxLanguage.Items.AddRange(new object[] { resources.GetString("comboBoxLanguage.Items"), resources.GetString("comboBoxLanguage.Items1"), resources.GetString("comboBoxLanguage.Items2"), resources.GetString("comboBoxLanguage.Items3"), resources.GetString("comboBoxLanguage.Items4") });
             comboBoxLanguage.Name = "comboBoxLanguage";
             comboBoxLanguage.SelectedIndexChanged += comboBoxLanguage_SelectedIndexChanged;
             // 

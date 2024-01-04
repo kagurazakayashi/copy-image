@@ -16,7 +16,7 @@
   - 至少 Windows XP, x32/64
   - 至少 [.NET Framework 3.5](https://dotnet.microsoft.com/zh-cn/download/dotnet-framework/net35-sp1)
 
-两个版本的功能相同。
+两个版本的所有功能相同。
 
 ## 使用
 

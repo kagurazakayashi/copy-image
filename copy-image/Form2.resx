@@ -845,21 +845,6 @@ Not providing &lt;picture file path&gt; will display this configuration window.<
   <data name="comboBoxLanguage.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="comboBoxLanguage.Items" xml:space="preserve">
-    <value>auto</value>
-  </data>
-  <data name="comboBoxLanguage.Items1" xml:space="preserve">
-    <value>en-US</value>
-  </data>
-  <data name="comboBoxLanguage.Items2" xml:space="preserve">
-    <value>zh-CN</value>
-  </data>
-  <data name="comboBoxLanguage.Items3" xml:space="preserve">
-    <value>zh-TW</value>
-  </data>
-  <data name="comboBoxLanguage.Items4" xml:space="preserve">
-    <value>ja-JP</value>
-  </data>
   <data name="comboBoxLanguage.Location" type="System.Drawing.Point, System.Drawing">
     <value>648, 562</value>
   </data>

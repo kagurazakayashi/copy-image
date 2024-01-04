@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using copy_image.Properties;
 using System.Reflection;
@@ -24,6 +23,7 @@ namespace copy_image
         public string extName = "";
         AniEgg aniegg = null;
         private Size defaultSize;
+        private bool initOK = false;
 
         public Form2(string path)
         {
@@ -34,23 +34,37 @@ namespace copy_image
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            string languagesT = l.GetString("t.Theme");
-            string[] languages = new string[0];
-            if (languagesT != null)
+            string themesT = l.GetString("t.Theme");
+            string[] themes = new string[0];
+            if (themesT != null)
             {
-                languages = languagesT.Split(',');
+                themes = themesT.Split(',');
             }
-            extName = l.GetString("t.ExplorerExt");
-            foreach (string language in languages)
+            extName = l.GetString("ExplorerExt");
+            foreach (string theme in themes)
             {
-                comboBoxThemeStyle.Items.Add(language);
+                comboBoxThemeStyle.Items.Add(theme);
             }
-            comboBoxThemeStyle.SelectedIndex = Settings.Default.ThemeStyle;
+            themes = LanguageMgr.langList();
+            foreach (string theme in themes)
+            {
+                comboBoxLanguage.Items.Add(theme);
+            }
+            if (Settings.Default.ThemeStyle >= comboBoxThemeStyle.Items.Count)
+            {
+                comboBoxThemeStyle.SelectedIndex = 0;
+            }
+            else
+            {
+                comboBoxThemeStyle.SelectedIndex = Settings.Default.ThemeStyle;
+            }
             if (Settings.Default.ThemeStyle == 2 || (GlobalSettings.IsDarkModeEnabled && Settings.Default.ThemeStyle == 0))
             {
                 applyDarkTheme();
             }
-            comboBoxLanguage.Text = Settings.Default.DefaultLanguage;
+            string showLang = LanguageMgr.autoSetLanguage(false, false)[2];
+            showLang = LanguageMgr.langInfo(showLang);
+            comboBoxLanguage.Text = showLang;
             if (imagePath != string.Empty)
             {
                 label1.Text += $"\n{imagePath} {l.GetString("t.NotValidPath")}";
@@ -98,6 +112,7 @@ namespace copy_image
             numericAutoSizeW.Enabled = Settings.Default.AutoSize;
             numericAutoSizeH.Enabled = Settings.Default.AutoSize;
             defaultSize = Size;
+            initOK = true;
         }
 
         private void applyDarkTheme()
@@ -143,7 +158,7 @@ namespace copy_image
         private void trackBarAutoClose_Scroll(object sender, EventArgs e)
         {
             string splitchar = ": ";
-            string timeTitle = groupBoxAutoClose.Text.Split(splitchar)[0];
+            string timeTitle = groupBoxAutoClose.Text.Split(new string[] { splitchar }, StringSplitOptions.RemoveEmptyEntries)[0];
             int val = trackBarAutoClose.Value;
             if (val == trackBarAutoClose.Minimum)
             {
@@ -213,7 +228,7 @@ namespace copy_image
                 }
                 infos.Add($".{ftype} {l.GetString("t.AddOK")}");
             }
-            MessageBox.Show(string.Join(Environment.NewLine, infos), extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(string.Join(Environment.NewLine, infos.ToArray()), extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void buttonShellMenuItemRemove_Click(object sender, EventArgs e)
@@ -244,7 +259,7 @@ namespace copy_image
                 }
                 infos.Add($".{ftype} {l.GetString("t.RmOK")}");
             }
-            MessageBox.Show(string.Join(Environment.NewLine, infos), extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(string.Join(Environment.NewLine, infos.ToArray()), extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void buttonShellMenuItemStatus_Click(object sender, EventArgs e)
@@ -263,34 +278,46 @@ namespace copy_image
                     infos.Add($".{ftype} {l.GetString("t.ExistsNo")}");
                 }
             }
-            MessageBox.Show(string.Join(Environment.NewLine, infos), extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(string.Join(Environment.NewLine, infos.ToArray()), extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void checkBoxAutoSize_CheckedChanged(object sender, EventArgs e)
         {
-            Settings.Default.AutoSize = checkBoxAutoSize.Checked;
+            if (initOK)
+            {
+                Settings.Default.AutoSize = checkBoxAutoSize.Checked;
+            }
             numericAutoSizeW.Enabled = checkBoxAutoSize.Checked;
             numericAutoSizeH.Enabled = checkBoxAutoSize.Checked;
         }
 
         private void numericAutoSizeW_ValueChanged(object sender, EventArgs e)
         {
-            Settings.Default.AutoSizeW = numericAutoSizeW.Value;
+            if (initOK)
+                Settings.Default.AutoSizeW = numericAutoSizeW.Value;
         }
 
         private void numericAutoSizeH_ValueChanged(object sender, EventArgs e)
         {
-            Settings.Default.AutoSizeH = numericAutoSizeH.Value;
+            if (initOK)
+                Settings.Default.AutoSizeH = numericAutoSizeH.Value;
         }
 
         private void comboBoxThemeStyle_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Settings.Default.ThemeStyle = comboBoxThemeStyle.SelectedIndex;
+            if (initOK)
+                Settings.Default.ThemeStyle = comboBoxThemeStyle.SelectedIndex;
         }
 
         private void comboBoxLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Settings.Default.DefaultLanguage = comboBoxLanguage.Text;
+            if (initOK)
+            {
+                Settings.Default.DefaultLanguage = LanguageMgr.langInfo(comboBoxLanguage.Text);
+                Close();
+                Application.Restart();
+                Environment.Exit(0);
+            }
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
