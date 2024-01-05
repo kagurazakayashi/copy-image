@@ -71,7 +71,7 @@
             // pictureBox1
             // 
             pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            pictureBox1.Image = Properties.Resources.copy_image_1;
+            pictureBox1.Image = Properties.Resources.copyimage1;
             resources.ApplyResources(pictureBox1, "pictureBox1");
             pictureBox1.Name = "pictureBox1";
             pictureBox1.TabStop = false;

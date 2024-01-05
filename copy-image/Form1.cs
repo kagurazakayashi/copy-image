@@ -87,7 +87,7 @@ namespace copy_image
                     int[] newSize = ImageResizer.ImageNewSize(image, maxSize[0], maxSize[1]);
                     if (newSize[0] != imgSize[0] || newSize[1] != imgSize[1])
                     {
-                        sizeText = $"{newSize[0]} x {newSize[1]} ({l.GetString("t.Compressed")} {sizeText} )";
+                        sizeText = $"{newSize[0]} x {newSize[1]} ({l.GetString("Compressed")} {sizeText} )";
                         image = ImageResizer.ResizeImage(image, newSize[0], newSize[1]);
                         imgSize[0] = image.Width;
                         imgSize[1] = image.Height;
@@ -95,7 +95,7 @@ namespace copy_image
                 }
                 pictureBox1.Image = image;
                 Clipboard.SetImage(image); // Œ¢ˆDÆ¬Ñ}Ñuµ½¼ôÙN²¾
-                Text = $"{sizeText} - {l.GetString("t.Copied")} - " + imagePath;
+                Text = $"{sizeText} - {l.GetString("Copied")} - " + imagePath;
                 label1.Visible = false;
                 if (exitTime <= 0)
                 {
@@ -112,9 +112,9 @@ namespace copy_image
                 string msg = ex.Message;
                 if (msg.IndexOf("Out of memory") >= 0)
                 {
-                    msg = l.GetString("t.OutMemory");
+                    msg = l.GetString("OutMemory");
                 }
-                if (MessageBox.Show(msg, l.GetString("t.CopyFailed"), MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
+                if (MessageBox.Show(msg, l.GetString("CopyFailed"), MessageBoxButtons.OK, MessageBoxIcon.Error) == DialogResult.OK)
                 {
                     Application.Exit();
                 }

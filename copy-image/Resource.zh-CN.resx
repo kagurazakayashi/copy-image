@@ -117,55 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="t.AddFail" xml:space="preserve">
+  <data name="AddFail" xml:space="preserve">
     <value>添加失败！</value>
   </data>
-  <data name="t.AddOK" xml:space="preserve">
+  <data name="AddOK" xml:space="preserve">
     <value>添加成功。</value>
   </data>
-  <data name="t.Compressed" xml:space="preserve">
+  <data name="Compressed" xml:space="preserve">
     <value>已压缩</value>
   </data>
-  <data name="t.Copied" xml:space="preserve">
+  <data name="Copied" xml:space="preserve">
     <value>已复制</value>
   </data>
-  <data name="t.CopyFailed" xml:space="preserve">
+  <data name="CopyFailed" xml:space="preserve">
     <value>图片复制失败</value>
   </data>
-  <data name="t.ExistsNo" xml:space="preserve">
+  <data name="ExistsNo" xml:space="preserve">
     <value>不存在！</value>
   </data>
-  <data name="t.ExistsYes" xml:space="preserve">
+  <data name="ExistsYes" xml:space="preserve">
     <value>已存在。</value>
   </data>
-  <data name="t.ExplorerExt" xml:space="preserve">
+  <data name="ExplorerExt" xml:space="preserve">
     <value>资源管理器扩展</value>
   </data>
-  <data name="t.FailedAddMenu" xml:space="preserve">
+  <data name="FailedAddMenu" xml:space="preserve">
     <value>添加右键菜单项失败，</value>
   </data>
-  <data name="t.FailedRemoveMenu" xml:space="preserve">
+  <data name="FailedRemoveMenu" xml:space="preserve">
     <value>删除右键菜单项失败，</value>
   </data>
-  <data name="t.NotValidPath" xml:space="preserve">
+  <data name="NotValidPath" xml:space="preserve">
     <value>不是有效的文件路径。</value>
   </data>
-  <data name="t.OutMemory" xml:space="preserve">
+  <data name="OutMemory" xml:space="preserve">
     <value>不支持的图片格式。</value>
   </data>
-  <data name="t.RmFail" xml:space="preserve">
+  <data name="RmFail" xml:space="preserve">
     <value>删除失败！</value>
   </data>
-  <data name="t.RmOK" xml:space="preserve">
+  <data name="RmOK" xml:space="preserve">
     <value>删除成功。</value>
   </data>
-  <data name="t.Seconds" xml:space="preserve">
+  <data name="Seconds" xml:space="preserve">
     <value>秒</value>
   </data>
-  <data name="t.Theme" xml:space="preserve">
+  <data name="Theme" xml:space="preserve">
     <value>跟随系统,亮色,暗色</value>
   </data>
-  <data name="t.TryAdmin" xml:space="preserve">
+  <data name="TryAdmin" xml:space="preserve">
     <value>请尝试以管理员权限运行。</value>
   </data>
 </root>

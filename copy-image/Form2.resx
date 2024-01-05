@@ -342,7 +342,7 @@ Not providing &lt;picture file path&gt; will display this configuration window.<
     <value>Consolas, 12pt</value>
   </data>
   <data name="textBoxFileTypes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 154</value>
+    <value>10, 156</value>
   </data>
   <data name="textBoxFileTypes.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -372,7 +372,7 @@ Not providing &lt;picture file path&gt; will display this configuration window.<
     <value>True</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 130</value>
+    <value>10, 132</value>
   </data>
   <data name="label4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -465,7 +465,7 @@ Not providing &lt;picture file path&gt; will display this configuration window.<
     <value>Top, Left, Right</value>
   </data>
   <data name="textBoxShellMenuItemName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 101</value>
+    <value>10, 100</value>
   </data>
   <data name="textBoxShellMenuItemName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 3, 4, 3</value>
@@ -495,7 +495,7 @@ Not providing &lt;picture file path&gt; will display this configuration window.<
     <value>True</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 77</value>
+    <value>10, 76</value>
   </data>
   <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
