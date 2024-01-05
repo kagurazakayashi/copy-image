@@ -251,10 +251,10 @@
             // 
             // comboBoxThemeStyle
             // 
-            resources.ApplyResources(this.comboBoxThemeStyle, "comboBoxThemeStyle");
             this.comboBoxThemeStyle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxThemeStyle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxThemeStyle.FormattingEnabled = true;
+            resources.ApplyResources(this.comboBoxThemeStyle, "comboBoxThemeStyle");
             this.comboBoxThemeStyle.Name = "comboBoxThemeStyle";
             this.comboBoxThemeStyle.SelectedIndexChanged += new System.EventHandler(this.comboBoxThemeStyle_SelectedIndexChanged);
             // 
@@ -264,12 +264,6 @@
             this.comboBoxLanguage.Cursor = System.Windows.Forms.Cursors.Hand;
             this.comboBoxLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxLanguage.FormattingEnabled = true;
-            this.comboBoxLanguage.Items.AddRange(new object[] {
-            resources.GetString("comboBoxLanguage.Items"),
-            resources.GetString("comboBoxLanguage.Items1"),
-            resources.GetString("comboBoxLanguage.Items2"),
-            resources.GetString("comboBoxLanguage.Items3"),
-            resources.GetString("comboBoxLanguage.Items4")});
             this.comboBoxLanguage.Name = "comboBoxLanguage";
             this.comboBoxLanguage.SelectedIndexChanged += new System.EventHandler(this.comboBoxLanguage_SelectedIndexChanged);
             // 
@@ -280,8 +274,8 @@
             // 
             // linkLabel1
             // 
-            resources.ApplyResources(this.linkLabel1, "linkLabel1");
             this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Yellow;
+            resources.ApplyResources(this.linkLabel1, "linkLabel1");
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.TabStop = true;
@@ -300,8 +294,9 @@
             // 
             // pictureBox1
             // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Image = global::copy_image.Properties.Resources.copyimage1;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);

@@ -23,6 +23,7 @@ namespace copy_image
         public string extName = "";
         AniEgg aniegg = null;
         private Size defaultSize;
+        private bool initOK = false;
 
         public Form2(string path)
         {
@@ -33,26 +34,40 @@ namespace copy_image
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            string languagesT = l.GetString("Theme");
-            string[] languages = new string[0];
-            if (languagesT != null)
+            string themesT = l.GetString("Theme");
+            string[] themes = new string[0];
+            if (themesT != null)
             {
-                languages = languagesT.Split(',');
+                themes = themesT.Split(',');
             }
             extName = l.GetString("ExplorerExt");
-            foreach (string language in languages)
+            foreach (string theme in themes)
             {
-                comboBoxThemeStyle.Items.Add(language);
+                comboBoxThemeStyle.Items.Add(theme);
             }
-            comboBoxThemeStyle.SelectedIndex = Settings.Default.ThemeStyle;
+            themes = LanguageMgr.langList();
+            foreach (string theme in themes)
+            {
+                comboBoxLanguage.Items.Add(theme);
+            }
+            if (Settings.Default.ThemeStyle >= comboBoxThemeStyle.Items.Count)
+            {
+                comboBoxThemeStyle.SelectedIndex = 0;
+            }
+            else
+            {
+                comboBoxThemeStyle.SelectedIndex = Settings.Default.ThemeStyle;
+            }
             if (Settings.Default.ThemeStyle == 2 || (GlobalSettings.IsDarkModeEnabled && Settings.Default.ThemeStyle == 0))
             {
                 applyDarkTheme();
             }
-            comboBoxLanguage.Text = Settings.Default.DefaultLanguage;
+            string showLang = LanguageMgr.autoSetLanguage(false, false)[2];
+            showLang = LanguageMgr.langInfo(showLang);
+            comboBoxLanguage.Text = showLang;
             if (imagePath != string.Empty)
             {
-                label1.Text += $"\n{imagePath} {l.GetString("NotValidPath")}";
+                label1.Text += $"\n{imagePath} {l.GetString("t.NotValidPath")}";
             }
             int autoClose = Settings.Default.AutoClose;
             if (autoClose < trackBarAutoClose.Minimum)
@@ -97,6 +112,7 @@ namespace copy_image
             numericAutoSizeW.Enabled = Settings.Default.AutoSize;
             numericAutoSizeH.Enabled = Settings.Default.AutoSize;
             defaultSize = Size;
+            initOK = true;
         }
 
         private void applyDarkTheme()
@@ -154,7 +170,7 @@ namespace copy_image
             }
             else
             {
-                timeTitle += splitchar + val.ToString() + " " + l.GetString("Seconds");
+                timeTitle += splitchar + val.ToString() + " " + l.GetString("t.Seconds");
             }
             groupBoxAutoClose.Text = timeTitle;
             if (val != Settings.Default.AutoClose)
@@ -193,7 +209,7 @@ namespace copy_image
                 string ftype = fileTypes[i];
                 if (!ShellMenuItemMgr.AddContextMenu(ftype, path, name))
                 {
-                    DialogResult result = MessageBox.Show($".{ftype} {l.GetString("FailedAddMenu")}{l.GetString("TryAdmin")}", extName, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
+                    DialogResult result = MessageBox.Show($".{ftype} {l.GetString("t.FailedAddMenu")}{l.GetString("t.TryAdmin")}", extName, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
                     if (result == DialogResult.Retry)
                     {
                         i--;
@@ -201,16 +217,16 @@ namespace copy_image
                     }
                     else if (result == DialogResult.Abort)
                     {
-                        infos.Add($".{ftype} {l.GetString("AddFail")}");
+                        infos.Add($".{ftype} {l.GetString("t.AddFail")}");
                         break;
                     }
                     else if (result == DialogResult.Ignore)
                     {
-                        infos.Add($".{ftype} {l.GetString("AddFail")}");
+                        infos.Add($".{ftype} {l.GetString("t.AddFail")}");
                         continue;
                     }
                 }
-                infos.Add($".{ftype} {l.GetString("AddOK")}");
+                infos.Add($".{ftype} {l.GetString("t.AddOK")}");
             }
             MessageBox.Show(string.Join(Environment.NewLine, infos.ToArray()), extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -224,7 +240,7 @@ namespace copy_image
                 string ftype = fileTypes[i];
                 if (!ShellMenuItemMgr.RemoveContextMenu(ftype))
                 {
-                    DialogResult result = MessageBox.Show($".{ftype} {l.GetString("FailedRemoveMenu")}{l.GetString("TryAdmin")}", extName, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
+                    DialogResult result = MessageBox.Show($".{ftype} {l.GetString("t.FailedRemoveMenu")}{l.GetString("t.TryAdmin")}", extName, MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
                     if (result == DialogResult.Retry)
                     {
                         i--;
@@ -232,16 +248,16 @@ namespace copy_image
                     }
                     else if (result == DialogResult.Abort)
                     {
-                        infos.Add($".{ftype} {l.GetString("RmFail")}");
+                        infos.Add($".{ftype} {l.GetString("t.RmFail")}");
                         break;
                     }
                     else if (result == DialogResult.Ignore)
                     {
-                        infos.Add($".{ftype} {l.GetString("RmFail")}");
+                        infos.Add($".{ftype} {l.GetString("t.RmFail")}");
                         continue;
                     }
                 }
-                infos.Add($".{ftype} {l.GetString("RmOK")}");
+                infos.Add($".{ftype} {l.GetString("t.RmOK")}");
             }
             MessageBox.Show(string.Join(Environment.NewLine, infos.ToArray()), extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -255,11 +271,11 @@ namespace copy_image
                 string ftype = fileTypes[i];
                 if (ShellMenuItemMgr.CheckContextMenuExists(ftype))
                 {
-                    infos.Add($".{ftype} {l.GetString("ExistsYes")}");
+                    infos.Add($".{ftype} {l.GetString("t.ExistsYes")}");
                 }
                 else
                 {
-                    infos.Add($".{ftype} {l.GetString("ExistsNo")}");
+                    infos.Add($".{ftype} {l.GetString("t.ExistsNo")}");
                 }
             }
             MessageBox.Show(string.Join(Environment.NewLine, infos.ToArray()), extName, MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -267,29 +283,41 @@ namespace copy_image
 
         private void checkBoxAutoSize_CheckedChanged(object sender, EventArgs e)
         {
-            Settings.Default.AutoSize = checkBoxAutoSize.Checked;
+            if (initOK)
+            {
+                Settings.Default.AutoSize = checkBoxAutoSize.Checked;
+            }
             numericAutoSizeW.Enabled = checkBoxAutoSize.Checked;
             numericAutoSizeH.Enabled = checkBoxAutoSize.Checked;
         }
 
         private void numericAutoSizeW_ValueChanged(object sender, EventArgs e)
         {
-            Settings.Default.AutoSizeW = numericAutoSizeW.Value;
+            if (initOK)
+                Settings.Default.AutoSizeW = numericAutoSizeW.Value;
         }
 
         private void numericAutoSizeH_ValueChanged(object sender, EventArgs e)
         {
-            Settings.Default.AutoSizeH = numericAutoSizeH.Value;
+            if (initOK)
+                Settings.Default.AutoSizeH = numericAutoSizeH.Value;
         }
 
         private void comboBoxThemeStyle_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Settings.Default.ThemeStyle = comboBoxThemeStyle.SelectedIndex;
+            if (initOK)
+                Settings.Default.ThemeStyle = comboBoxThemeStyle.SelectedIndex;
         }
 
         private void comboBoxLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Settings.Default.DefaultLanguage = comboBoxLanguage.Text;
+            if (initOK)
+            {
+                Settings.Default.DefaultLanguage = LanguageMgr.langInfo(comboBoxLanguage.Text);
+                Close();
+                Application.Restart();
+                Environment.Exit(0);
+            }
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
