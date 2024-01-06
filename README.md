@@ -9,10 +9,10 @@
 
 ## 系统要求
 
-- 普通版本
+- [main](https://github.com/kagurazakayashi/copy-image) 普通版本
   - 至少 Windows 10 版本 1607, x32/64 或 arm32/64
   - 至少 [.NET Framework 桌面运行时 8](https://dotnet.microsoft.com/zh-cn/download/dotnet/8.0)
-- compatible 分支版本
+- [compatible](https://github.com/kagurazakayashi/copy-image/tree/compatible) 分支版本
   - 至少 Windows XP, x32/64
   - 至少 [.NET Framework 3.5](https://dotnet.microsoft.com/zh-cn/download/dotnet-framework/net35-sp1)
 
