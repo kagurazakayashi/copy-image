@@ -1,4 +1,4 @@
-﻿namespace copy_image
+namespace copy_image
 {
     partial class Form2
     {
